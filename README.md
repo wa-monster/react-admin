@@ -23,3 +23,22 @@
 
   });
   ```
+
+  ### cra 创建的 react 项目配置 eslint
+
+  - pnpm add eslint
+  - 安装完后 ./node_modules/.bin/eslint --init 进行配置
+  - 配置会要求你选择一些基础选项，这是我的选择
+  - How would you like to use ESLint? · problems
+  - What type of modules does your project use? · esm
+  - Which framework does your project use? · react
+  - Does your project use TypeScript? · No / Yes
+  - Where does your code run? · browser
+  - What format do you want your config file to be in? · JavaScript
+  - Would you like to install them now? · No / Yes
+  - Which package manager do you want to use? · pnpm
+    你也可以根据自己的情况进行配置
+    配置完后基础的配置就完成了
+    然后在 vscode 里面安装 eslint 插件和 Prettier - Code formatter 插件
+    然后在 tsx 文件里面 选择 使用。。。格式化文档 设置默认格式化程序为 Prettier
+    就完成了配置

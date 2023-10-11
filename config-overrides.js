@@ -1,6 +1,6 @@
-const { override,addLessLoader ,addWebpackAlias, addWebpackPlugin } = require('customize-cra');
+const { override,addLessLoader ,addWebpackAlias, addWebpackPlugin,adjustStyleLoaders } = require('customize-cra');
 const CompressionWebpackPlugin = require('compression-webpack-plugin') // gzip压缩, 可以压缩js css 
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
+const {BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const path = require('path');
 
 //配置开发模式和打包模式
@@ -33,19 +33,18 @@ module.exports = override(
     }),
     // 配置less
     addLessLoader({
-        strictMath: true,
-        noIeCompat: true,
-        modifyVars: {
-        '@primary-color': '#1DA57A', // for example, you use Ant Design to change theme color.
-        },
-        cssLoaderOptions: {}, // .less file used css-loader option, not all CSS file.
-        cssModules: {
-        localIdentName: '[path][name]__[local]--[hash:base64:5]', // if you use CSS Modules, and custom `localIdentName`, default is '[local]--[hash:base64:5]'.
-        },
+        lessOptions: {
+            javascriptEnabled: true,
+            localIdentName: '[local]--[hash:base64:5]' // 自定义 CSS Modules 的 localIdentName
+        }
+    }),
+    adjustStyleLoaders(({ use: [, , postcss] }) => {
+        const postcssOptions = postcss.options;
+        postcss.options = { postcssOptions };
     }),
     addCustom(),
     process.env.NODE_ENV === 'production'? addWebpackPlugin(
-        new WebpackBundleAnalyzer({
+        new BundleAnalyzerPlugin({
             analyzerMode: 'static' //输出静态报告文件report.html，而不是启动一个web服务
         })
     ) : undefined
