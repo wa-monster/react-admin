@@ -1,5 +1,6 @@
-const { override,addLessLoader ,addWebpackAlias } = require('customize-cra');
+const { override,addLessLoader ,addWebpackAlias, addWebpackPlugin } = require('customize-cra');
 const CompressionWebpackPlugin = require('compression-webpack-plugin') // gzip压缩, 可以压缩js css 
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
 const path = require('path');
 
 //配置开发模式和打包模式
@@ -11,6 +12,7 @@ const addCustom = ()=>{
                 test:/.js$|.css$/,
                 threshold:1024,
             })]
+            
             const { promisify } = require('util')
             const chalk = require('chalk')
             const clear = require('clear')
@@ -42,4 +44,9 @@ module.exports = override(
         },
     }),
     addCustom(),
+    process.env.NODE_ENV === 'production'? addWebpackPlugin(
+        new WebpackBundleAnalyzer({
+            analyzerMode: 'static' //输出静态报告文件report.html，而不是启动一个web服务
+        })
+    ) : undefined
 );
