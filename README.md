@@ -42,3 +42,66 @@
     然后在 vscode 里面安装 eslint 插件和 Prettier - Code formatter 插件
     然后在 tsx 文件里面 选择 使用。。。格式化文档 设置默认格式化程序为 Prettier
     就完成了配置
+
+### 使用 husky + commit-lint + lint-staged
+
+- pnpm add husky @commitlint/cli @commitlint/config-conventional lint-staged -D
+- ```
+  pkg.json 的script里面添加命令 prepare 是npm下载前的生命周期钩子
+  //package.json
+  "scripts": {
+      "prepare": "husky install",
+  },
+  // 然后运行
+  npm run prepare
+  ```
+
+* 执行成功后会在根目录下生成 .husky 目录 目录里面有个 `_` 目录 不用管它
+
+配置 commitlint
+根目录下新建 `commitlintrc.js`,填入如下内容
+
+```
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'feat', // 新功能（feature）
+        'fix', // 修复bug
+        'docs', // 修改文档
+        'style', // 修改代码格式，不影响代码逻辑
+        'refactor', // 代码重构，理论上不影响功能逻辑
+        'test', // 修改测试用例
+        'build', // 构建或其他工具的变动(如webpack)
+        'revert', // 还原以前的提交
+        'merge', // 分支代码合并
+      ],
+    ],
+  },
+};
+```
+
+然后执行命令 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'`
+这样会在`.husky`目录下新建一个`commit-msg` git hooks
+这样就可以实现 commit 的时候填写的 msg 要求要有规范了，具体规范 `type: 内容`
+
+配置检查 eslint
+执行命令 `npx husky add .husky/pre-commit "npx eslint src`
+这样会在`.husky`目录下新建一个`pre-commit` git hooks
+这样就可以实现 commit 前 检查是否符合 eslint
+
+配置 lint-staged
+如果直接 npx eslint src 会检查 src 下的所有文件，我们可以通过 lint-staged 只检查要提交的部分的文件
+根目录新建 `.lintstagedrc.json`，内容如下
+
+```
+{
+  "*.{js,jsx,vue,ts}": ["eslint src"]
+}
+```
+
+然后找到 `.husky`下的`pre-commit` 把里面的 `npx eslint src` 替换为 `npx lint-staged`
+就可以了
