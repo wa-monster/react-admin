@@ -38,5 +38,11 @@ module.exports = {
     ],
     "rules": {
         semi: 2
+    },
+    "settings":{
+        react:{
+            program:"React",
+            version:"detect"
+        }
     }
 };
