@@ -45,6 +45,7 @@ module.exports = override(
       localIdentName: "[local]--[hash:base64:5]", // 自定义 CSS Modules 的 localIdentName
     },
   }),
+  // 为了解决引入less报错
   adjustStyleLoaders(({ use: [, , postcss] }) => {
     const postcssOptions = postcss.options;
     postcss.options = { postcssOptions };

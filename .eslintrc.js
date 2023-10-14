@@ -20,7 +20,7 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ["config-overrides.js"],
+  ignorePatterns: ["*.js"],
   parser: "@typescript-eslint/parser",
   // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
   // "parser": "@typescript-eslint/parser",

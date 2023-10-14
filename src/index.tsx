@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import RouterApp from "@/router/index";
-import "./index.less";
+import "./index.css";
+import "loaders.css";
 import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider } from "antd";
+import zhCN from "antd/locale/zh_CN";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterApp></RouterApp>
+    <ConfigProvider locale={zhCN}>
+      <RouterApp></RouterApp>
+    </ConfigProvider>
   </React.StrictMode>
 );
 
