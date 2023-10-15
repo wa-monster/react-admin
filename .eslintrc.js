@@ -34,6 +34,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "react"],
   rules: {
     semi: 2,
+    "@typescript-eslint/no-explicit-any": "warn",
   },
   settings: {
     react: {
