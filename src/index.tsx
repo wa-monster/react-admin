@@ -12,7 +12,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider
+      locale={zhCN}
+      theme={{
+        token: {
+          colorPrimary: "#4096ff",
+        },
+      }}
+    >
       <RouterApp></RouterApp>
     </ConfigProvider>
   </React.StrictMode>

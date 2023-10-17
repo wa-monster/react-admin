@@ -1,4 +1,41 @@
-.loginForm{
+
+.loginBox{
     background-color:  rgba(255,255,255,0.9);
     border: 1px solid #eee;
+    color: var(--base);
+}
+.loginForm{
+    padding: 20px 40px;
+}
+.webName{
+
+}
+.loginButton{
+    // background-color: var(--base);
+}
+
+.textLogoBox{
+    background-color: #000;
+    animation: bg 4s forwards ease-in;
+    .textLogo {
+        font-family: 'Shrikhand', cursive;
+        stroke-dashoffset: 1114px;
+        stroke-dasharray: 1114px;
+        -moz-animation: draw 8s forwards ease-in;
+        -webkit-animation: draw 8s forwards ease-in;
+        animation: draw 4s forwards ease-in;
+        background-clip: text;
+    }
+}
+
+@keyframes bg {
+    100% {
+        background-color: rgba(0,0,0,0);
+    }
+}
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0;
+        background-color: rgba(0,0,0,0);
+    }
 }
