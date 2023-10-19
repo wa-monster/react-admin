@@ -3,10 +3,13 @@ import ParticlesBg from "particles-bg";
 import styles from "./index.module.less";
 import { Button, Form, Input, Checkbox, theme } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-
+import { useNavigate } from "react-router-dom";
+import counter from "@/store/index";
+import { observer } from "mobx-react";
 const { useToken } = theme;
+function Login() {
+  const navigate = useNavigate();
 
-export default function Login() {
   type LoginFormType = {
     username: string;
     password: string;
@@ -14,7 +17,17 @@ export default function Login() {
   };
   const { token } = useToken();
 
-  const checkChange = () => {};
+  const toLogin = (values: LoginFormType) => {
+    console.log(values);
+    if (values.remember) {
+      console.log("1");
+    } else {
+      console.log("2");
+    }
+    if (values.username === "admin" && values.password === "yang123") {
+      navigate("/", { replace: true });
+    }
+  };
 
   useEffect(() => {
     const pathArr = Array.prototype.slice.call(
@@ -24,11 +37,9 @@ export default function Login() {
       const len = path.getTotalLength();
       path.setAttribute("stroke-dasharray", len);
       path.setAttribute("stroke-dashoffset", 0);
-      console.log("path.children[0]", path.children);
       path.children[0].setAttribute("from", -(len + 1));
     });
   }, []);
-
   return (
     <div className="login-content w-full h-full flex justify-center items-center">
       <ParticlesBg type="fountain" bg={true} />
@@ -168,27 +179,43 @@ export default function Login() {
             />
           </svg>
         </div>
-        <Form name="login" autoComplete="off" className={styles.loginForm}>
-          <Form.Item<LoginFormType> name="username">
+        <div>
+          <span>{counter.count}</span>
+          <button onClick={() => counter.up()}> +</button>
+          <button onClick={() => counter.down()}> -</button>
+        </div>
+        <Form
+          name="login"
+          autoComplete="off"
+          className={styles.loginForm}
+          onFinish={toLogin}
+        >
+          <Form.Item<LoginFormType>
+            name="username"
+            rules={[{ required: true, message: "请输入账号" }]}
+          >
             <Input
               placeholder="admin"
               prefix={<UserOutlined style={{ color: token.colorPrimary }} />}
             ></Input>
           </Form.Item>
-          <Form.Item<LoginFormType> name="password">
+          <Form.Item<LoginFormType>
+            name="password"
+            rules={[{ required: true, message: "请输入密码" }]}
+          >
             <Input.Password
-              placeholder="yang123456"
+              placeholder="yang123"
               prefix={<LockOutlined style={{ color: token.colorPrimary }} />}
             />
           </Form.Item>
-          <Form.Item<LoginFormType> name="remember">
+          <Form.Item<LoginFormType> name="remember" valuePropName="checked">
             <div style={{ color: token.colorPrimary }}>
-              <span>记住账号 </span>
-              <Checkbox onChange={() => checkChange()}></Checkbox>
+              <span>记住账号</span>
+              <Checkbox></Checkbox>
             </div>
           </Form.Item>
           <Form.Item>
-            <Button block type="primary">
+            <Button block type="primary" htmlType="submit">
               登录
             </Button>
           </Form.Item>
@@ -208,3 +235,4 @@ export default function Login() {
     </div>
   );
 }
+export default observer(Login);
