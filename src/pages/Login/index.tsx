@@ -4,31 +4,32 @@ import styles from "./index.module.less";
 import { Button, Form, Input, Checkbox, theme } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import counter from "@/store/index";
-import { observer } from "mobx-react";
+import { useStore, observer } from "@/store";
 const { useToken } = theme;
 function Login() {
   const navigate = useNavigate();
+  const { user } = useStore();
+  const { token } = useToken();
 
   type LoginFormType = {
     username: string;
     password: string;
     remember?: boolean;
   };
-  const { token } = useToken();
-
+  // 登录
   const toLogin = (values: LoginFormType) => {
     console.log(values);
     if (values.remember) {
-      console.log("1");
+      user.setUserName(values.username);
     } else {
-      console.log("2");
+      user.setUserName("");
     }
     if (values.username === "admin" && values.password === "yang123") {
       navigate("/", { replace: true });
     }
   };
 
+  // dom加载
   useEffect(() => {
     const pathArr = Array.prototype.slice.call(
       document.querySelectorAll(".logo-yang  svg path")
@@ -179,15 +180,11 @@ function Login() {
             />
           </svg>
         </div>
-        <div>
-          <span>{counter.count}</span>
-          <button onClick={() => counter.up()}> +</button>
-          <button onClick={() => counter.down()}> -</button>
-        </div>
         <Form
           name="login"
           autoComplete="off"
           className={styles.loginForm}
+          initialValues={{ username: user.userName }}
           onFinish={toLogin}
         >
           <Form.Item<LoginFormType>

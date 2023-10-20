@@ -1,20 +1,8 @@
-import { action, makeObservable, observable } from "mobx";
-
-class Counter {
-  count = 0;
-  constructor() {
-    makeObservable(this, {
-      count: observable,
-      up: action,
-      down: action,
-    });
-  }
-  up() {
-    this.count++;
-  }
-  down() {
-    this.count--;
-  }
+import { observer } from "mobx-react";
+import user from "./modules/user";
+function useStore() {
+  return {
+    user,
+  };
 }
-const counter = new Counter();
-export default counter;
+export { observer, useStore };
