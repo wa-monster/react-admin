@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from "react";
+import React, { Children, lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "@/components/Loading";
+import Layout from "@/layout";
 const Home = lazy(() => import("@/pages/Home"));
 const Login = lazy(() => import("@/pages/Login"));
 
@@ -20,7 +21,14 @@ function FactorySuspense({
 const routers = [
   {
     path: "/",
-    element: <FactorySuspense ele={Home} />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <FactorySuspense ele={Home} />,
+        children: [],
+      },
+    ],
   },
   {
     path: "/login",

@@ -11,9 +11,9 @@ export default function Home() {
     <div>
       Home
       <Button onClick={() => outLogin()}>退出登录</Button>
-      <div className="h-10">
+      {/* <div className="h-10">
         <Loader type="line-scale" active></Loader>
-      </div>
+      </div> */}
     </div>
   );
 }
