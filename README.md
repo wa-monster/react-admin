@@ -105,3 +105,8 @@ module.exports = {
 
 然后找到 `.husky`下的`pre-commit` 把里面的 `npx eslint src` 替换为 `npx lint-staged`
 就可以了
+
+### 页面样式参考
+
+- React-Admin https://isluo.com/work/admin/
+- 若依后台管理框架 http://vue.ruoyi.vip/index

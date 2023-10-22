@@ -1,27 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import RouterApp from "@/router/index";
 import "./index.css";
 import "loaders.css";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ConfigProvider } from "antd";
-import zhCN from "antd/locale/zh_CN";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ConfigProvider
-      locale={zhCN}
-      theme={{
-        token: {
-          colorPrimary: "#4096ff",
-        },
-      }}
-    >
-      <RouterApp></RouterApp>
-    </ConfigProvider>
+    <App></App>
   </React.StrictMode>
 );
 

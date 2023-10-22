@@ -8,7 +8,11 @@ function Layout() {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <YangLogo></YangLogo>
+        <YangLogo
+          width="200px"
+          height="50px"
+          styleObj={{ transform: "translateX(30px)" }}
+        ></YangLogo>
       </div>
       <div className={styles.top}></div>
       <div className={styles.menu}></div>

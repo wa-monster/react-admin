@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { theme } from "antd";
 import styles from "./index.module.less";
 const { useToken } = theme;
-function YangLogo() {
+interface propsType {
+  width?: string;
+  styleObj?: Record<string, string>;
+  height?: string;
+}
+
+function YangLogo(props: propsType) {
   const { token } = useToken();
   // dom加载
   useEffect(() => {
@@ -24,9 +30,10 @@ function YangLogo() {
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
-        width="400px"
-        height="100px"
+        width={props.width}
+        height={props.height}
         viewBox="0 0 400 100"
+        style={props.styleObj}
       >
         <defs>
           <path
@@ -154,5 +161,9 @@ function YangLogo() {
     </div>
   );
 }
-
+YangLogo.defaultProps = {
+  width: "400px",
+  height: "100px",
+  styleObj: {},
+};
 export default YangLogo;
