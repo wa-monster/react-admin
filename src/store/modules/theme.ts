@@ -9,7 +9,7 @@ export default makeAutoObservable({
     this.colorPrimary = color;
   },
   colorMenuLogo: "#001529",
-  getColorMenuLogo(color: string) {
+  getColorMenuLogo() {
     this.colorPrimary = "";
   },
   setColorMenuLogo(color: string) {

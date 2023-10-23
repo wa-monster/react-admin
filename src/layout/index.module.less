@@ -6,6 +6,19 @@
   grid-template-rows: 50px 1fr;
   .logo {
     background-color: #001529;
+    position: relative;
+    // display: grid;
+    // grid-template-columns: 30px 1fr;
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
   }
   .top {
     border-bottom: 1px solid #d8dce5;
@@ -15,6 +28,7 @@
   }
   .menu {
     background-color: #001529;
+    // background-color: red;
   }
   .content {
     background-color: #f0f2f5;

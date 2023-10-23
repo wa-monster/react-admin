@@ -31,7 +31,6 @@ function Login() {
     username: user.userName,
     remember: user.userName ? true : false,
   };
-  console.log("1111");
 
   // 登录
   const toLogin = (values: LoginFormType) => {

@@ -1,5 +1,4 @@
 import React from "react";
-import Loader from "react-loaders";
 import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 export default function Home() {
