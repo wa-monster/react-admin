@@ -7,7 +7,6 @@ import SideMenu from "./components/SideMenu";
 import { theme } from "antd";
 const { useToken } = theme;
 function Layout() {
-  console.log("111");
   const { token } = useToken();
 
   return (

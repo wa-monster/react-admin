@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
@@ -16,8 +16,8 @@ export const useAntdI18n = () => {
     zh_CN: "zh-cn",
     en_US: "en",
   };
-  const [locale, setLocale] = useState<typeof zh_CN>();
-
+  const [locale, setLocale] = useState<typeof zh_CN>(localeObj[i18n.lang]);
+  dayjs.locale(dayjsLocaleObj[i18n.lang]);
   useEffect(() => {
     setLocale(localeObj[i18n.lang]);
     dayjs.locale(dayjsLocaleObj[i18n.lang]);

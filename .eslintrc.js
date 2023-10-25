@@ -36,6 +36,7 @@ module.exports = {
     semi: 2,
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
+    "no-debugger": "warn",
   },
   settings: {
     react: {

@@ -4,8 +4,10 @@ import { observer, useStore } from "@/store";
 import RouterApp from "@/router/index";
 import { useAntdI18n } from "@/i18n/antd";
 function App() {
-  const { theme, i18n } = useStore();
+  const { theme } = useStore();
   const { locale } = useAntdI18n();
+  console.log("appappapp");
+
   return (
     <ConfigProvider
       locale={locale}
@@ -17,6 +19,7 @@ function App() {
     >
       <RouterApp></RouterApp>
     </ConfigProvider>
+    // <div>111</div>
   );
 }
 export default observer(App);
