@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, DatePicker } from "antd";
 import { observer, useStore } from "@/store";
+import { t } from "i18next";
 
 function Home() {
   const { i18n } = useStore();
@@ -20,6 +21,7 @@ function Home() {
       <Button onClick={() => qiehuan("zh_CN")}>切换中文</Button>
       <Button onClick={() => outLogin()}>退出登录</Button>
       <DatePicker />
+      <span>wwww{t("home")}</span>
       {/* <div className="h-10">
         <Loader type="line-scale" active></Loader>
       </div> */}

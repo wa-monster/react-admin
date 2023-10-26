@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx";
 import { makePersistable } from "mobx-persist-store";
+
 const i18nObj = {
-  lang: localStorage.getItem("lang") || "zh_CN",
+  lang: "zh_CN",
   setLocal(lang: string) {
     this.lang = lang;
   },
