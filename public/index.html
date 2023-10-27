@@ -25,8 +25,14 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <!-- 加载地图JSAPI脚本 -->
+    <script src="https://webapi.amap.com/maps?v=2.0&key=5e13acb59363902630ab37624d412d1b"></script>
   </head>
   <body>
+    <script>
+      console.log(window.AMap);
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
     </div>

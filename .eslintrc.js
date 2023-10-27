@@ -37,6 +37,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "no-debugger": "warn",
+    "prefer-const": "warn",
   },
   settings: {
     react: {

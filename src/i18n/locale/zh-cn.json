@@ -1,5 +1,18 @@
 {
     "test words":"测试文字",
     "home":"首页111",
-    "welcome":"欢迎来首页"
+    "welcome":"欢迎来首页",
+    "usernameTip":"请输入账号",
+    "passwordTip":"请输入密码",
+    "remember":"记住账号",
+    "login":"登录",
+    "forget":"忘记密码",
+    "register":"注册",
+    "dashboard":"首页",
+    "systemManage":"系统管理",
+    "userManage":"用户管理",
+    "roleManage":"角色管理",
+    "menuManage":"菜单管理",
+    "technicalStudy":"技术研究",
+    "aggregatedHex":"聚合蜂窝图"
 }

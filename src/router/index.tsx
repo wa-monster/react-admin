@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Loading from "@/components/Loading";
 import Layout from "@/layout";
 const Home = lazy(() => import("@/pages/Home"));
+const Hex = lazy(() => import("@/pages/Hex"));
 const Login = lazy(() => import("@/pages/Login"));
 
 // Suspense工厂函数
@@ -26,6 +27,11 @@ const routers = [
       {
         path: "/",
         element: <FactorySuspense ele={Home} />,
+        children: [],
+      },
+      {
+        path: "/hex",
+        element: <FactorySuspense ele={Hex} />,
         children: [],
       },
     ],

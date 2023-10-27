@@ -1,5 +1,18 @@
 {
     "test words":"test words",       
     "home":"Home",
-    "welcome":"Welcome To Home"
+    "welcome":"Welcome To Home",
+    "usernameTip":"need username",
+    "passwordTip":"need password",
+    "remember":"remember",
+    "login":"login",
+    "forget":"forget",
+    "register":"register",
+    "dashboard":"dashboard",
+    "systemManage":"systemManage",
+    "userManage":"userManage",
+    "roleManage":"roleManage",
+    "menuManage":"menuManage",
+    "technicalStudy":"technicalStudy",
+    "aggregatedHex":"aggregatedHex"
 }

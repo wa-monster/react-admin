@@ -10,6 +10,7 @@ import {
   MenuUnfoldOutlined,
   PieChartOutlined,
 } from "@ant-design/icons";
+import { t } from "i18next";
 function SideMenu() {
   type MenuItem = Required<MenuProps>["items"][number];
   const getItem = (
@@ -28,14 +29,14 @@ function SideMenu() {
     };
   };
   const items = [
-    getItem("首页", "1", <AppstoreOutlined />),
-    getItem("系统管理", "2", <ContainerOutlined />, [
-      getItem("用户管理", "2-1", <DesktopOutlined />),
-      getItem("角色管理", "2-2", <MailOutlined />),
-      getItem("菜单管理", "2-3", <MenuFoldOutlined />),
+    getItem(t("dashboard"), "1", <AppstoreOutlined />),
+    getItem(t("systemManage"), "2", <ContainerOutlined />, [
+      getItem(t("userManage"), "2-1", <DesktopOutlined />),
+      getItem(t("roleManage"), "2-2", <MailOutlined />),
+      getItem(t("menuManage"), "2-3", <MenuFoldOutlined />),
     ]),
-    getItem("技术研究", "3", <MenuUnfoldOutlined />, [
-      getItem("聚合蜂窝图", "3-1", <PieChartOutlined />),
+    getItem(t("technicalStudy"), "3", <MenuUnfoldOutlined />, [
+      getItem(t("aggregatedHex"), "3-1", <PieChartOutlined />),
     ]),
   ];
   return (

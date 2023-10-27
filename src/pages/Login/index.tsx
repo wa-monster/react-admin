@@ -6,13 +6,13 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useStore, observer } from "@/store";
 import YangLogo from "@/components/YangLogo";
-
+import { t } from "i18next";
 const { useToken } = theme;
 function GetCheck(props: any) {
   const { token } = useToken();
   return (
     <div style={{ color: token.colorPrimary }} className="flex items-center">
-      <span style={{ marginRight: "10px" }}>记住账号</span>
+      <span style={{ marginRight: "10px" }}>{t("remember")}</span>
       <Checkbox checked={props.checked} onChange={props.onChange}></Checkbox>
     </div>
   );
@@ -58,7 +58,7 @@ function Login() {
         >
           <Form.Item<LoginFormType>
             name="username"
-            rules={[{ required: true, message: "请输入账号" }]}
+            rules={[{ required: true, message: t("usernameTip") }]}
           >
             <Input
               placeholder="admin"
@@ -67,7 +67,7 @@ function Login() {
           </Form.Item>
           <Form.Item<LoginFormType>
             name="password"
-            rules={[{ required: true, message: "请输入密码" }]}
+            rules={[{ required: true, message: t("passwordTip") }]}
           >
             <Input.Password
               placeholder="yang123"
@@ -79,7 +79,7 @@ function Login() {
           </Form.Item>
           <Form.Item>
             <Button block type="primary" htmlType="submit">
-              登录
+              {t("login")}
             </Button>
           </Form.Item>
         </Form>
@@ -88,10 +88,10 @@ function Login() {
           style={{ padding: "0 40px" }}
         >
           <div style={{ color: token.colorPrimary, cursor: "pointer" }}>
-            忘记密码
+            {t("forget")}
           </div>
           <div style={{ color: token.colorPrimary, cursor: "pointer" }}>
-            注册
+            {t("register")}
           </div>
         </div>
       </div>
