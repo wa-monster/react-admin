@@ -4,6 +4,8 @@ import styles from "./index.module.less";
 import YangLogo from "@/components/YangLogo";
 import YangIcon from "@/components/YangIcon";
 import SideMenu from "./components/SideMenu";
+import TopHeader from "./components/TopHeader";
+import TopNavbar from "./components/TopNavbar";
 import { theme } from "antd";
 const { useToken } = theme;
 function Layout() {
@@ -21,7 +23,10 @@ function Layout() {
           styleObj={{ transform: "translateX(30px)" }}
         ></YangLogo>
       </div>
-      <div className={styles.top}></div>
+      <div className={styles.top}>
+        <TopHeader></TopHeader>
+        <TopNavbar></TopNavbar>
+      </div>
       <div className={styles.menu}>
         <SideMenu></SideMenu>
       </div>

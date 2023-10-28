@@ -110,6 +110,7 @@ module.exports = {
 
 - React-Admin https://isluo.com/work/admin/
 - 若依后台管理框架 http://vue.ruoyi.vip/index
+- ant-design-pro https://preview.pro.ant.design/dashboard/analysis/
 
 10-23
 完成 logo 和菜单
