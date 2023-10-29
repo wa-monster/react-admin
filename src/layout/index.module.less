@@ -2,17 +2,20 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 80px 1fr;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 80px auto;
+  // grid-auto-flow: column;
+  transition: all 0.3s;
   .logo {
     background-color: #001529;
     position: relative;
+    overflow: hidden;
     // display: grid;
     // grid-template-columns: 30px 1fr;
     .icon {
       position: absolute;
       top: 0;
-      left: 10px;
+      left: 16px;
       width: 50px;
       height: 50px;
       vertical-align: -0.15em;
@@ -25,6 +28,7 @@
     box-shadow: 0px 1px 3px 0 #ddd;
     position: relative;
     z-index: 9;
+    transition: grid-column 0.3s;
   }
   .menu {
     background-color: #001529;

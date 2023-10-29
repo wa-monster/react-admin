@@ -5,7 +5,7 @@ import { observer, useStore } from "@/store";
 import { t } from "i18next";
 
 function Home() {
-  const { i18n } = useStore();
+  const { i18n, layout } = useStore();
   const navigate = useNavigate();
   const outLogin = () => {
     navigate("/login", { replace: true });
@@ -14,12 +14,16 @@ function Home() {
   const changeLang = (lan: string) => {
     i18n.setLocal(lan);
   };
+  const deleteLogo = () => {
+    layout.setLogoDisabled(!layout.logoDisabled);
+  };
   return (
     <div>
       Home
       <Button onClick={() => changeLang("en_US")}>切换英文</Button>
       <Button onClick={() => changeLang("zh_CN")}>切换中文</Button>
       <Button onClick={() => outLogin()}>退出登录</Button>
+      <Button onClick={() => deleteLogo()}>去掉logo</Button>
       <DatePicker />
       <span>wwww{t("home")}</span>
       {/* <div className="h-10">

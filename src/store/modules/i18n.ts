@@ -7,11 +7,11 @@ const i18nObj = {
     this.lang = lang;
   },
 };
-const a = makeAutoObservable(i18nObj);
-makePersistable(a, {
+const i18n = makeAutoObservable(i18nObj);
+makePersistable(i18n, {
   name: "i18n",
   properties: ["lang"],
   storage: window.localStorage,
 });
 
-export default a;
+export default i18n;

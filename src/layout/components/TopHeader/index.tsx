@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styles from "./index.module.less";
 import { Breadcrumb, Badge, Space } from "antd";
+import { useStore } from "@/store/index";
 import {
   MenuFoldOutlined,
   BellOutlined,
   QuestionCircleOutlined,
 } from "@ant-design/icons";
 const TopHeader = () => {
-  const [rotate, setRotate] = useState(0);
+  const { layout } = useStore();
+  const [rotate, setRotate] = useState(180);
   const toogleRotate = () => {
-    setRotate(rotate === 0 ? 180 : 0);
+    layout.setMenuJustIcon(!layout.menuJustIcon);
+    setRotate(rotate === 180 ? 0 : 180);
   };
   const [bread, setBread] = useState([
     {

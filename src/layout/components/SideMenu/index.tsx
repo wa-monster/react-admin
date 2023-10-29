@@ -11,7 +11,9 @@ import {
   PieChartOutlined,
 } from "@ant-design/icons";
 import { t } from "i18next";
+import { useStore } from "@/store/index";
 function SideMenu() {
+  const { layout } = useStore();
   type MenuItem = Required<MenuProps>["items"][number];
   const getItem = (
     label: React.ReactNode,
@@ -40,14 +42,13 @@ function SideMenu() {
     ]),
   ];
   return (
-    <div>
-      <Menu
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        theme="dark"
-        items={items}
-      ></Menu>
-    </div>
+    <Menu
+      defaultSelectedKeys={["1"]}
+      mode="inline"
+      theme="dark"
+      items={items}
+      inlineCollapsed={layout.menuJustIcon}
+    ></Menu>
   );
 }
 export default SideMenu;
