@@ -17,6 +17,7 @@ interface propsType {
 interface propsType2 {
   layout: layoutBoxObjType;
 }
+// 左上Logo
 function LayoutLogo(props: propsType) {
   return (
     <div className={styles.logo}>
@@ -31,6 +32,7 @@ function LayoutLogo(props: propsType) {
     </div>
   );
 }
+// 右上Top
 function LayoutTop(props: propsType2) {
   return (
     <div className={styles.top}>
@@ -39,7 +41,7 @@ function LayoutTop(props: propsType2) {
     </div>
   );
 }
-
+// 左下Menu
 function LayoutMenu(props: propsType2) {
   return (
     <div className={styles.menu}>
@@ -60,6 +62,7 @@ function Layout() {
       {layout.logoDisabled ? <LayoutLogo token={token}></LayoutLogo> : null}
       {layout.topDisabled ? <LayoutTop layout={layout}></LayoutTop> : null}
       {layout.menuDisabled ? <LayoutMenu layout={layout}></LayoutMenu> : null}
+      {/* 右下菜单 */}
       <div className={styles.content}>
         <Outlet />
       </div>
