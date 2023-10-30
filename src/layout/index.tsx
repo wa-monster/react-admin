@@ -25,7 +25,7 @@ function LayoutLogo(props: propsType) {
       </div>
       <YangLogo
         width="200px"
-        height="50px"
+        height="80px"
         styleObj={{ transform: "translateX(30px)" }}
       ></YangLogo>
     </div>
@@ -33,12 +33,7 @@ function LayoutLogo(props: propsType) {
 }
 function LayoutTop(props: propsType2) {
   return (
-    <div
-      className={styles.top}
-      style={{
-        gridColumn: props.layout.logoDisabled ? "auto" : "1 / span 2",
-      }}
-    >
+    <div className={styles.top}>
       <TopHeader></TopHeader>
       <TopNavbar></TopNavbar>
     </div>
@@ -57,6 +52,7 @@ function Layout() {
   const { layout } = useStore();
   const containerStyleObj = {
     gridTemplateColumns: layout.menuJustIcon ? "80px 1fr" : "200px 1fr",
+    gridTemplateAreas: layout.templateAreas,
   };
   //
   return (

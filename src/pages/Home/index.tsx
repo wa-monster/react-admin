@@ -17,13 +17,27 @@ function Home() {
   const deleteLogo = () => {
     layout.setLogoDisabled(!layout.logoDisabled);
   };
+  const deleteTop = () => {
+    layout.setTopDisabled(!layout.topDisabled);
+  };
+  const deleteMenu = () => {
+    layout.setMenuDisabled(!layout.menuDisabled);
+  };
   return (
     <div>
       Home
       <Button onClick={() => changeLang("en_US")}>切换英文</Button>
       <Button onClick={() => changeLang("zh_CN")}>切换中文</Button>
       <Button onClick={() => outLogin()}>退出登录</Button>
-      <Button onClick={() => deleteLogo()}>去掉logo</Button>
+      <Button onClick={() => deleteLogo()}>
+        {!layout.logoDisabled ? "开" : "关"}logo
+      </Button>
+      <Button onClick={() => deleteTop()}>
+        {!layout.topDisabled ? "开" : "关"}top
+      </Button>
+      <Button onClick={() => deleteMenu()}>
+        {!layout.menuDisabled ? "开" : "关"}menu
+      </Button>
       <DatePicker />
       <span>wwww{t("home")}</span>
       {/* <div className="h-10">
