@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./index.module.less";
-import { Breadcrumb, Badge, Space } from "antd";
+import { Breadcrumb, Badge, Space, MenuProps, Dropdown } from "antd";
 import { useStore } from "@/store/index";
 import {
   MenuFoldOutlined,
@@ -28,6 +28,44 @@ const TopHeader = () => {
       title: "An Application",
     },
   ]);
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          1st menu item
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          2nd menu item
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.luohanacademy.com"
+        >
+          3rd menu item
+        </a>
+      ),
+    },
+  ];
   return (
     <div className={styles.topHeader}>
       <div className="flex justify-center items-center">
@@ -61,6 +99,23 @@ const TopHeader = () => {
               cursor: "pointer",
             }}
           />
+        </div>
+        <div>
+          <Dropdown menu={{ items }} placement="bottomLeft">
+            <div className="flex items-center">
+              <img
+                src="https://th.bing.com/th/id/OIP.QXb0mLjpcyRvJERASa9QOQHaHa?pid=ImgDet&rs=1"
+                alt=""
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  marginRight: "10px",
+                }}
+              />
+              <span>用户</span>
+            </div>
+          </Dropdown>
         </div>
       </div>
     </div>
