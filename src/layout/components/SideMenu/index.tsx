@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
+import { useNavigate } from "react-router-dom";
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -13,6 +14,7 @@ import {
 import { t } from "i18next";
 import { useStore } from "@/store/index";
 function SideMenu() {
+  const navigate = useNavigate();
   const { layout } = useStore();
   type MenuItem = Required<MenuProps>["items"][number];
   const getItem = (
@@ -31,16 +33,22 @@ function SideMenu() {
     };
   };
   const items = [
-    getItem(t("dashboard"), "1", <AppstoreOutlined />),
-    getItem(t("systemManage"), "2", <ContainerOutlined />, [
-      getItem(t("userManage"), "2-1", <DesktopOutlined />),
-      getItem(t("roleManage"), "2-2", <MailOutlined />),
-      getItem(t("menuManage"), "2-3", <MenuFoldOutlined />),
+    getItem(t("home"), "home", <AppstoreOutlined />),
+    getItem(t("systemManage"), "systemManage", <ContainerOutlined />, [
+      getItem(t("userManage"), "userManage", <DesktopOutlined />),
+      getItem(t("roleManage"), "roleManage", <MailOutlined />),
+      getItem(t("menuManage"), "menuManage", <MenuFoldOutlined />),
     ]),
-    getItem(t("technicalStudy"), "3", <MenuUnfoldOutlined />, [
-      getItem(t("aggregatedHex"), "3-1", <PieChartOutlined />),
+    getItem(t("technicalStudy"), "technicalStudy", <MenuUnfoldOutlined />, [
+      getItem(t("aggregatedHex"), "aggregatedHex", <PieChartOutlined />),
     ]),
   ];
+  const selectMenu = ({ keyPath }: { keyPath: string[] }) => {
+    const pathUrl = "/" + keyPath.reverse().join("/");
+    // console.log(path);
+
+    navigate(pathUrl);
+  };
   return (
     <Menu
       defaultSelectedKeys={["1"]}
@@ -48,6 +56,7 @@ function SideMenu() {
       theme="dark"
       items={items}
       inlineCollapsed={layout.menuJustIcon}
+      onSelect={(e) => selectMenu(e)}
     ></Menu>
   );
 }

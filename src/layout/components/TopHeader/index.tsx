@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.less";
+import { useLocation } from "react-router-dom";
 import { Breadcrumb, Badge, Space, MenuProps, Dropdown } from "antd";
+import { t } from "i18next";
 import { useStore } from "@/store/index";
 import {
   MenuFoldOutlined,
@@ -8,6 +10,8 @@ import {
   QuestionCircleOutlined,
 } from "@ant-design/icons";
 const TopHeader = () => {
+  const location = useLocation();
+
   const { layout } = useStore();
   const [rotate, setRotate] = useState(180);
   const toogleRotate = () => {
@@ -18,16 +22,26 @@ const TopHeader = () => {
     {
       title: "Home",
     },
-    {
-      title: <a href="">Application Center</a>,
-    },
-    {
-      title: <a href="">Application List</a>,
-    },
-    {
-      title: "An Application",
-    },
   ]);
+  useEffect(() => {
+    const arr = location.pathname.split("/");
+    setBread(
+      arr
+        .filter((v) => {
+          return v !== "home";
+        })
+        .map((v: string, i: number) => {
+          if (i === 0) {
+            return {
+              title: t("home"),
+            };
+          }
+          return {
+            title: t(v),
+          };
+        })
+    );
+  }, [location]);
   const items: MenuProps["items"] = [
     {
       key: "1",

@@ -1,10 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Loading from "@/components/Loading";
 import Layout from "@/layout";
 const Home = lazy(() => import("@/pages/Home"));
 const Hex = lazy(() => import("@/pages/Hex"));
 const Login = lazy(() => import("@/pages/Login"));
+const UserManage = lazy(() => import("@/pages/UserManage"));
+const RoleManage = lazy(() => import("@/pages/RoleManage"));
+const MenuManage = lazy(() => import("@/pages/MenuManage"));
 
 // Suspense工厂函数
 function FactorySuspense({
@@ -24,13 +31,33 @@ const routers = [
     path: "/",
     element: <Layout />,
     children: [
+      // 重定向导/home
       {
         path: "/",
+        element: <Navigate to={"/home"} />,
+      },
+      {
+        path: "/home",
         element: <FactorySuspense ele={Home} />,
         children: [],
       },
       {
-        path: "/hex",
+        path: "/systemManage/userManage",
+        element: <FactorySuspense ele={UserManage} />,
+        children: [],
+      },
+      {
+        path: "/systemManage/roleManage",
+        element: <FactorySuspense ele={RoleManage} />,
+        children: [],
+      },
+      {
+        path: "/systemManage/menuManage",
+        element: <FactorySuspense ele={MenuManage} />,
+        children: [],
+      },
+      {
+        path: "/technicalStudy/aggregatedHex",
         element: <FactorySuspense ele={Hex} />,
         children: [],
       },
