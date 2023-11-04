@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.less";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import { Breadcrumb, Badge, Space, MenuProps, Dropdown } from "antd";
 import { t } from "i18next";
 import { useStore } from "@/store/index";
@@ -8,23 +8,30 @@ import {
   MenuFoldOutlined,
   BellOutlined,
   QuestionCircleOutlined,
+  GithubOutlined,
+  UserOutlined,
+  LogoutOutlined,
+  TranslationOutlined,
+  FontColorsOutlined,
+  ItalicOutlined,
 } from "@ant-design/icons";
+import { langMenu } from "@/router/index";
+import { useAntdI18n } from "@/i18n/antd";
 const TopHeader = () => {
   const location = useLocation();
-
-  const { layout } = useStore();
+  const navigate = useNavigate();
+  const { i18n, layout } = useStore();
+  const { locale } = useAntdI18n();
   const [rotate, setRotate] = useState(180);
   const toogleRotate = () => {
     layout.setMenuJustIcon(!layout.menuJustIcon);
     setRotate(rotate === 180 ? 0 : 180);
   };
-  const [bread, setBread] = useState([
-    {
-      title: "Home",
-    },
-  ]);
-  useEffect(() => {
+
+  const [bread, setBread] = useState<any[]>();
+  const getBread = () => {
     const arr = location.pathname.split("/");
+
     setBread(
       arr
         .filter((v) => {
@@ -33,26 +40,33 @@ const TopHeader = () => {
         .map((v: string, i: number) => {
           if (i === 0) {
             return {
-              title: t("home"),
+              title: t("首页"),
             };
           }
           return {
-            title: t(v),
+            title: t(langMenu[v as keyof typeof langMenu]),
           };
         })
     );
-  }, [location]);
+  };
+  useEffect(() => {
+    getBread();
+  }, [location, locale]);
+  const outLogin = () => {
+    navigate("/login", { replace: true });
+  };
+
+  const changeLang = (lan: string) => {
+    i18n.setLocal(lan);
+  };
   const items: MenuProps["items"] = [
     {
       key: "1",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          1st menu item
-        </a>
+        <NavLink to="/personal">
+          <UserOutlined />
+          个人中心
+        </NavLink>
       ),
     },
     {
@@ -61,22 +75,41 @@ const TopHeader = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+          href="https://github.com/wa-monster/yang-admin"
         >
-          2nd menu item
+          <GithubOutlined /> GitHub
         </a>
       ),
     },
     {
+      type: "divider",
+    },
+    {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item
-        </a>
+        <span onClick={outLogin}>
+          <LogoutOutlined /> 退出登录
+        </span>
+      ),
+    },
+  ];
+  const langItems: MenuProps["items"] = [
+    {
+      key: "lang1",
+      label: (
+        <span onClick={() => changeLang("zh_CN")}>
+          <ItalicOutlined />
+          {t("切换中文")}
+        </span>
+      ),
+    },
+    {
+      key: "lang2",
+      label: (
+        <span onClick={() => changeLang("en_US")}>
+          <FontColorsOutlined />
+          {t("切换英文")}
+        </span>
       ),
     },
   ];
@@ -88,7 +121,7 @@ const TopHeader = () => {
           onClick={toogleRotate}
           rotate={rotate}
           style={{
-            fontSize: "16px",
+            fontSize: "20px",
           }}
         />
       </div>
@@ -100,7 +133,7 @@ const TopHeader = () => {
           <Badge count={10} size="small" offset={[10, 0]} overflowCount={99}>
             <BellOutlined
               style={{
-                fontSize: "16px",
+                fontSize: "20px",
                 cursor: "pointer",
               }}
             />
@@ -109,20 +142,40 @@ const TopHeader = () => {
         <div>
           <QuestionCircleOutlined
             style={{
-              fontSize: "16px",
+              fontSize: "20px",
               cursor: "pointer",
             }}
           />
         </div>
         <div>
-          <Dropdown menu={{ items }} placement="bottomLeft">
-            <div className="flex items-center">
+          <Dropdown
+            arrow={{ pointAtCenter: true }}
+            menu={{ items: langItems }}
+            placement="bottomLeft"
+            trigger={["click"]}
+          >
+            <TranslationOutlined
+              style={{
+                fontSize: "20px",
+                cursor: "pointer",
+              }}
+            />
+          </Dropdown>
+        </div>
+        <div>
+          <Dropdown
+            arrow={{ pointAtCenter: true }}
+            menu={{ items }}
+            trigger={["click"]}
+            placement="bottom"
+          >
+            <div className="flex items-center cursor-pointer">
               <img
                 src="https://th.bing.com/th/id/OIP.QXb0mLjpcyRvJERASa9QOQHaHa?pid=ImgDet&rs=1"
                 alt=""
                 style={{
-                  width: "40px",
-                  height: "40px",
+                  width: "30px",
+                  height: "30px",
                   borderRadius: "10px",
                   marginRight: "10px",
                 }}

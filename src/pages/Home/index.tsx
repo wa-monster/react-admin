@@ -6,10 +6,6 @@ import { t } from "i18next";
 
 function Home() {
   const { i18n, layout } = useStore();
-  const navigate = useNavigate();
-  const outLogin = () => {
-    navigate("/login", { replace: true });
-  };
 
   const changeLang = (lan: string) => {
     i18n.setLocal(lan);
@@ -28,7 +24,6 @@ function Home() {
       Home
       <Button onClick={() => changeLang("en_US")}>切换英文</Button>
       <Button onClick={() => changeLang("zh_CN")}>切换中文</Button>
-      <Button onClick={() => outLogin()}>退出登录</Button>
       <Button onClick={() => deleteLogo()}>
         {!layout.logoDisabled ? "开" : "关"}logo
       </Button>

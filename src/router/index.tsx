@@ -12,6 +12,7 @@ const Login = lazy(() => import("@/pages/Login"));
 const UserManage = lazy(() => import("@/pages/UserManage"));
 const RoleManage = lazy(() => import("@/pages/RoleManage"));
 const MenuManage = lazy(() => import("@/pages/MenuManage"));
+const Personal = lazy(() => import("@/pages/Personal"));
 
 // Suspense工厂函数
 function FactorySuspense({
@@ -25,7 +26,16 @@ function FactorySuspense({
     </Suspense>
   );
 }
-
+export const langMenu = {
+  home: "首页",
+  personal: "个人中心",
+  systemManage: "系统管理",
+  userManage: "用户管理",
+  roleManage: "角色管理",
+  menuManage: "菜单管理",
+  technicalStudy: "技术研究",
+  aggregatedHex: "聚合蜂窝图",
+};
 const routers = [
   {
     path: "/",
@@ -39,6 +49,11 @@ const routers = [
       {
         path: "/home",
         element: <FactorySuspense ele={Home} />,
+        children: [],
+      },
+      {
+        path: "/personal",
+        element: <FactorySuspense ele={Personal} />,
         children: [],
       },
       {

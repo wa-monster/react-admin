@@ -12,7 +12,7 @@ function GetCheck(props: any) {
   const { token } = useToken();
   return (
     <div style={{ color: token.colorPrimary }} className="flex items-center">
-      <span style={{ marginRight: "10px" }}>{t("remember")}</span>
+      <span style={{ marginRight: "10px" }}>{t("记住账号")}</span>
       <Checkbox checked={props.checked} onChange={props.onChange}></Checkbox>
     </div>
   );
@@ -58,7 +58,7 @@ function Login() {
         >
           <Form.Item<LoginFormType>
             name="username"
-            rules={[{ required: true, message: t("usernameTip") }]}
+            rules={[{ required: true, message: t("请输入账号") }]}
           >
             <Input
               placeholder="admin"
@@ -67,7 +67,7 @@ function Login() {
           </Form.Item>
           <Form.Item<LoginFormType>
             name="password"
-            rules={[{ required: true, message: t("passwordTip") }]}
+            rules={[{ required: true, message: t("请输入密码") }]}
           >
             <Input.Password
               placeholder="yang123"
@@ -79,7 +79,7 @@ function Login() {
           </Form.Item>
           <Form.Item>
             <Button block type="primary" htmlType="submit">
-              {t("login")}
+              {t("登录")}
             </Button>
           </Form.Item>
         </Form>
@@ -88,10 +88,10 @@ function Login() {
           style={{ padding: "0 40px" }}
         >
           <div style={{ color: token.colorPrimary, cursor: "pointer" }}>
-            {t("forget")}
+            {t("忘记密码")}
           </div>
           <div style={{ color: token.colorPrimary, cursor: "pointer" }}>
-            {t("register")}
+            {t("注册")}
           </div>
         </div>
       </div>

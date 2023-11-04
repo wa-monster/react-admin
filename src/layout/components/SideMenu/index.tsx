@@ -33,14 +33,14 @@ function SideMenu() {
     };
   };
   const items = [
-    getItem(t("home"), "home", <AppstoreOutlined />),
-    getItem(t("systemManage"), "systemManage", <ContainerOutlined />, [
-      getItem(t("userManage"), "userManage", <DesktopOutlined />),
-      getItem(t("roleManage"), "roleManage", <MailOutlined />),
-      getItem(t("menuManage"), "menuManage", <MenuFoldOutlined />),
+    getItem(t("首页"), "home", <AppstoreOutlined />),
+    getItem(t("系统管理"), "systemManage", <ContainerOutlined />, [
+      getItem(t("用户管理"), "userManage", <DesktopOutlined />),
+      getItem(t("角色管理"), "roleManage", <MailOutlined />),
+      getItem(t("菜单管理"), "menuManage", <MenuFoldOutlined />),
     ]),
-    getItem(t("technicalStudy"), "technicalStudy", <MenuUnfoldOutlined />, [
-      getItem(t("aggregatedHex"), "aggregatedHex", <PieChartOutlined />),
+    getItem(t("技术研究"), "technicalStudy", <MenuUnfoldOutlined />, [
+      getItem(t("聚合蜂窝图"), "aggregatedHex", <PieChartOutlined />),
     ]),
   ];
   const selectMenu = ({ keyPath }: { keyPath: string[] }) => {
