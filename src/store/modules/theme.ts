@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-
-export default makeAutoObservable({
+import { makePersistable } from "mobx-persist-store";
+const themeObj = {
   colorPrimary: "#4096ff",
   getColorPrimary() {
     this.colorPrimary = "";
@@ -15,4 +15,12 @@ export default makeAutoObservable({
   setColorMenuLogo(color: string) {
     this.colorPrimary = color;
   },
+};
+const theme = makeAutoObservable(themeObj);
+makePersistable(theme, {
+  name: "theme",
+  properties: ["colorPrimary", "colorMenuLogo"],
+  storage: window.localStorage,
 });
+
+export default theme;

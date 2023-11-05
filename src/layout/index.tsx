@@ -6,6 +6,7 @@ import YangIcon from "@/components/YangIcon";
 import SideMenu from "./components/SideMenu";
 import TopHeader from "./components/TopHeader";
 import TopNavbar from "./components/TopNavbar";
+import Setting from "./components/Setting";
 import { theme } from "antd";
 import type { GlobalToken } from "antd";
 import { useStore, observer } from "@/store/index";
@@ -62,6 +63,7 @@ function Layout() {
       {layout.logoDisabled ? <LayoutLogo token={token}></LayoutLogo> : null}
       {layout.topDisabled ? <LayoutTop layout={layout}></LayoutTop> : null}
       {layout.menuDisabled ? <LayoutMenu layout={layout}></LayoutMenu> : null}
+      <Setting></Setting>
       {/* 右下菜单 */}
       <div className={styles.content}>
         <Outlet />
