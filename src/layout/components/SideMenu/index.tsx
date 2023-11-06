@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -15,6 +15,11 @@ import { t } from "i18next";
 import { useStore } from "@/store/index";
 function SideMenu() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const pathnameArr = location.pathname.split("/").filter((v) => v !== "");
+  const defaultSelectedKeys = pathnameArr[pathnameArr.length - 1];
+  const defaultOpenKeys = pathnameArr.length > 1 ? [pathnameArr[0]] : undefined;
+
   const { layout } = useStore();
   type MenuItem = Required<MenuProps>["items"][number];
   const getItem = (
@@ -51,7 +56,8 @@ function SideMenu() {
   };
   return (
     <Menu
-      defaultSelectedKeys={["1"]}
+      defaultOpenKeys={defaultOpenKeys}
+      defaultSelectedKeys={[defaultSelectedKeys]}
       mode="inline"
       theme="dark"
       items={items}

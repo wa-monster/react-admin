@@ -64,10 +64,10 @@ const Hex = () => {
     init();
   }, []);
   return (
-    <>
+    <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <div id="container" className={styles.container}></div>
       <canvas id="canvas" className={styles.canvas}></canvas>
-    </>
+    </div>
   );
 };
 export default Hex;

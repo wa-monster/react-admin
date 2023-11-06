@@ -10,14 +10,11 @@ import Setting from "./components/Setting";
 import { theme } from "antd";
 import type { GlobalToken } from "antd";
 import { useStore, observer } from "@/store/index";
-import { layoutBoxObjType } from "@/store/modules/layout";
 const { useToken } = theme;
 interface propsType {
   token: GlobalToken;
 }
-interface propsType2 {
-  layout: layoutBoxObjType;
-}
+
 // 左上Logo
 function LayoutLogo(props: propsType) {
   return (
@@ -34,7 +31,7 @@ function LayoutLogo(props: propsType) {
   );
 }
 // 右上Top
-function LayoutTop(props: propsType2) {
+function LayoutTop() {
   return (
     <div className={styles.top}>
       <TopHeader></TopHeader>
@@ -43,7 +40,7 @@ function LayoutTop(props: propsType2) {
   );
 }
 // 左下Menu
-function LayoutMenu(props: propsType2) {
+function LayoutMenu() {
   return (
     <div className={styles.menu}>
       <SideMenu></SideMenu>
@@ -61,8 +58,8 @@ function Layout() {
   return (
     <div className={styles.container} style={containerStyleObj}>
       {layout.logoDisabled ? <LayoutLogo token={token}></LayoutLogo> : null}
-      {layout.topDisabled ? <LayoutTop layout={layout}></LayoutTop> : null}
-      {layout.menuDisabled ? <LayoutMenu layout={layout}></LayoutMenu> : null}
+      {layout.topDisabled ? <LayoutTop></LayoutTop> : null}
+      {layout.menuDisabled ? <LayoutMenu></LayoutMenu> : null}
       <Setting></Setting>
       {/* 右下菜单 */}
       <div className={styles.content}>

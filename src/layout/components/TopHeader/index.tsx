@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.less";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
-import { Breadcrumb, Badge, Space, MenuProps, Dropdown } from "antd";
+import { Breadcrumb, Badge, Popover, MenuProps, Dropdown, Tabs } from "antd";
 import { t } from "i18next";
 import { useStore } from "@/store/index";
 import {
@@ -17,6 +17,82 @@ import {
 } from "@ant-design/icons";
 import { langMenu } from "@/router/index";
 import { useAntdI18n } from "@/i18n/antd";
+import type { TabsProps } from "antd";
+const UserIcon = () => {
+  return (
+    <div className="flex items-center cursor-pointer">
+      <img
+        src="https://th.bing.com/th/id/OIP.QXb0mLjpcyRvJERASa9QOQHaHa?pid=ImgDet&rs=1"
+        alt=""
+        style={{
+          width: "30px",
+          height: "30px",
+          borderRadius: "10px",
+          marginRight: "10px",
+        }}
+      />
+      <span>用户</span>
+    </div>
+  );
+};
+const TopHeaderMessageContent = () => {
+  const onChange = (key: string) => {
+    console.log(key);
+  };
+
+  const items: TabsProps["items"] = [
+    {
+      key: "1",
+      label: "未读",
+      children: (
+        <div className="flex items-center justify-around">
+          <UserIcon></UserIcon>
+          <div>今天的任务完成了吗？</div>
+        </div>
+      ),
+    },
+    {
+      key: "2",
+      label: "已读",
+      children: "",
+    },
+    {
+      key: "3",
+      label: "全部",
+      children: "",
+    },
+  ];
+  return (
+    <div style={{ width: "25%", minWidth: "250px" }}>
+      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+    </div>
+  );
+};
+const TopHeaderMessage = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleHoverChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+  return (
+    <Popover
+      content={<TopHeaderMessageContent />}
+      trigger="click"
+      onOpenChange={handleHoverChange}
+      open={open}
+    >
+      <Badge count={1} size="small" offset={[5, 0]} overflowCount={99}>
+        <BellOutlined
+          style={{
+            fontSize: "20px",
+            cursor: "pointer",
+          }}
+        />
+      </Badge>
+    </Popover>
+  );
+};
+
 const TopHeader = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -114,7 +190,7 @@ const TopHeader = () => {
     },
   ];
   return (
-    <div className={styles.topHeader}>
+    <div className={styles.topHeader} style={{ userSelect: "none" }}>
       <div className="flex justify-center items-center">
         <MenuFoldOutlined
           className={styles.headerIcon}
@@ -130,14 +206,7 @@ const TopHeader = () => {
       </div>
       <div className="flex justify-end items-center pr-10 gap-8">
         <div>
-          <Badge count={10} size="small" offset={[10, 0]} overflowCount={99}>
-            <BellOutlined
-              style={{
-                fontSize: "20px",
-                cursor: "pointer",
-              }}
-            />
-          </Badge>
+          <TopHeaderMessage></TopHeaderMessage>
         </div>
         <div>
           <QuestionCircleOutlined
@@ -169,19 +238,7 @@ const TopHeader = () => {
             trigger={["click"]}
             placement="bottom"
           >
-            <div className="flex items-center cursor-pointer">
-              <img
-                src="https://th.bing.com/th/id/OIP.QXb0mLjpcyRvJERASa9QOQHaHa?pid=ImgDet&rs=1"
-                alt=""
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "10px",
-                  marginRight: "10px",
-                }}
-              />
-              <span>用户</span>
-            </div>
+            <UserIcon />
           </Dropdown>
         </div>
       </div>
