@@ -238,7 +238,9 @@ const TopHeader = () => {
             trigger={["click"]}
             placement="bottom"
           >
-            <UserIcon />
+            <div>
+              <UserIcon />
+            </div>
           </Dropdown>
         </div>
       </div>

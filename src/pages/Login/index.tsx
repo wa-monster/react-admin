@@ -39,7 +39,7 @@ function Login() {
     } else {
       user.setUserName("");
     }
-    if (values.username === "admin" && values.password === "yang123") {
+    if (values.username === "yang" && values.password === "yang") {
       navigate("/", { replace: true });
     }
   };
@@ -61,7 +61,7 @@ function Login() {
             rules={[{ required: true, message: t("请输入账号") }]}
           >
             <Input
-              placeholder="admin"
+              placeholder="yang"
               prefix={<UserOutlined style={{ color: token.colorPrimary }} />}
             ></Input>
           </Form.Item>
@@ -70,7 +70,7 @@ function Login() {
             rules={[{ required: true, message: t("请输入密码") }]}
           >
             <Input.Password
-              placeholder="yang123"
+              placeholder="yang"
               prefix={<LockOutlined style={{ color: token.colorPrimary }} />}
             />
           </Form.Item>

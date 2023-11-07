@@ -50,6 +50,9 @@ const routers = [
         path: "/home",
         element: <FactorySuspense ele={Home} />,
         children: [],
+        handle: {
+          name: "wwwwww",
+        },
       },
       {
         path: "/personal",
