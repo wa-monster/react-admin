@@ -18,7 +18,7 @@ const addCustom = () => {
 
       // 配置打包后的文件位置
       // config.output.path = __dirname + "/dist";
-      // config.output.publicPath = "/";
+      config.output.publicPath = "/yang-admin/";
       config.plugins = [
         ...config.plugins,
         new CompressionWebpackPlugin({
