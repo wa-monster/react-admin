@@ -1,3 +1,0 @@
-{
-    "*.{js,jsx,tsx,vue,ts}":["eslint src"]
-}

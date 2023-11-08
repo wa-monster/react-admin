@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyang_template=self.webpackChunkyang_template||[]).push([[86],{8086:function(e,n,t){t.r(n);t(3330);var a=t(3726);n.default=function(){return(0,a.jsx)("div",{children:"\u4e2a\u4eba\u4e2d\u5fc3"})}}}]);
