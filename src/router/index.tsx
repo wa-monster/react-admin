@@ -51,33 +51,48 @@ const routers = [
         element: <FactorySuspense ele={Home} />,
         children: [],
         handle: {
-          name: "wwwwww",
+          name: "首页",
         },
       },
       {
         path: "/personal",
         element: <FactorySuspense ele={Personal} />,
         children: [],
+        handle: {
+          name: "个人中心",
+        },
       },
       {
         path: "/systemManage/userManage",
         element: <FactorySuspense ele={UserManage} />,
         children: [],
+        handle: {
+          name: "用户管理",
+        },
       },
       {
         path: "/systemManage/roleManage",
         element: <FactorySuspense ele={RoleManage} />,
         children: [],
+        handle: {
+          name: "角色管理",
+        },
       },
       {
         path: "/systemManage/menuManage",
         element: <FactorySuspense ele={MenuManage} />,
         children: [],
+        handle: {
+          name: "菜单管理",
+        },
       },
       {
         path: "/technicalStudy/aggregatedHex",
         element: <FactorySuspense ele={Hex} />,
         children: [],
+        handle: {
+          name: "聚合蜂窝图",
+        },
       },
     ],
   },
