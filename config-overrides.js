@@ -8,12 +8,17 @@ const {
 const CompressionWebpackPlugin = require("compression-webpack-plugin"); // gzip压缩, 可以压缩js css
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const path = require("path");
-
+const paths = require("react-scripts/config/paths");
+paths.appBuild = path.join(path.dirname(paths.appBuild), "./yang-amdin.org");
 //配置开发模式和打包模式
 const addCustom = () => {
   return (config) => {
     if (process.env.NODE_ENV === "production") {
-      config.devtool = false; //去除map文件
+      config.devtool = false; //去除map文件// 关闭sourceMap
+
+      // 配置打包后的文件位置
+      // config.output.path = __dirname + "/dist";
+      // config.output.publicPath = "/";
       config.plugins = [
         ...config.plugins,
         new CompressionWebpackPlugin({
