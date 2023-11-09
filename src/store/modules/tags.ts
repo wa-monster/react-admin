@@ -1,19 +1,25 @@
 import { makeAutoObservable } from "mobx";
 interface StoreProps {
-  name: string;
-  userName: string;
-  setName: (value: string) => void;
-  setUserName: (value: string) => void;
+  openTags: any[];
+  tagsMap: Map<string, any>;
+  setTags: (tag: any) => void;
 }
-export default makeAutoObservable<StoreProps>({
-  name: "",
-  userName: localStorage.getItem("userName") || "",
-  setName(name: string) {
-    this.name = name;
+const homeObj = {
+  pathname: "/home",
+  handle: {
+    name: "首页",
   },
-  setUserName(userName: string) {
-    console.log("userNameuserNameuserNameuserName");
-    localStorage.setItem("userName", userName);
-    this.userName = userName;
+};
+const tagsObj: StoreProps = {
+  openTags: [],
+  tagsMap: new Map(),
+  setTags(tag: any) {
+    if (!this.tagsMap.has(tag.pathname)) {
+      this.tagsMap.set(tag.pathname, "ok");
+      this.openTags.push(tag);
+    }
   },
-});
+};
+const tags = makeAutoObservable(tagsObj);
+
+export default tags;

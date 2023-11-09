@@ -50,6 +50,8 @@ function LayoutMenu() {
 function Layout() {
   const { token } = useToken();
   const { layout } = useStore();
+  console.log("layout.menuJustIcon", layout.menuJustIcon);
+
   const containerStyleObj = {
     gridTemplateColumns: layout.menuJustIcon ? "80px 1fr" : "200px 1fr",
     gridTemplateAreas: layout.templateAreas,

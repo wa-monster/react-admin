@@ -1,4 +1,22 @@
 .topNavbar {
   height: 30px;
   width: 100%;
+  box-sizing: border-box;
+  padding: 4px 10px 4px 10px;
+  display: flex;
+  overflow-x: hidden;
+}
+.tag {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  &.active {
+    background-color: cornflowerblue;
+    color: #fff;
+  }
 }
