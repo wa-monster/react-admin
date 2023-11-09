@@ -7,6 +7,7 @@ function App() {
   const { theme } = useStore();
   const { locale } = useAntdI18n();
 
+	
   return (
     <ConfigProvider
       locale={locale}

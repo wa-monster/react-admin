@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
+	createHashRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
@@ -102,7 +103,8 @@ const routers = [
   },
 ];
 
-const router = createBrowserRouter(routers);
+// const router = createBrowserRouter(routers);
+const router = createHashRouter(routers);
 
 export default function RouterApp() {
   return <RouterProvider router={router}></RouterProvider>;
