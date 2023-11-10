@@ -3,10 +3,25 @@ import styles from "./index.module.less";
 import { useLocation, useMatches, useNavigate } from "react-router-dom";
 import { observer, useStore } from "@/store/index";
 import { t } from "i18next";
+
 const TagComponent = (props: any) => {
   const { v, pathname } = props;
-  const avc = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  const navigate = useNavigate();
+  const { tags } = useStore();
+
+  const closeTag = (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+    v: { pathname: string }
+  ) => {
     e.stopPropagation();
+    tags.deleteTag(v);
+    if (v.pathname === pathname) {
+      if (tags.openTags.length !== 0) {
+        navigate(tags.openTags[tags.openTags.length - 1].pathname);
+      } else {
+        navigate("/home");
+      }
+    }
     console.log("1");
   };
   return (
@@ -17,7 +32,11 @@ const TagComponent = (props: any) => {
       }`}
     >
       <span>{t(v.handle.name)}</span>
-      <span onClick={(e) => avc(e)}>xxxxxxxxxxxxxx</span>
+      {v.pathname !== "/home" ? (
+        <span className={styles.closeTag} onClick={(e) => closeTag(e, v)}>
+          x
+        </span>
+      ) : null}
     </div>
   );
 };
