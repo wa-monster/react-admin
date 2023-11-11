@@ -4,7 +4,15 @@
   box-sizing: border-box;
   padding: 4px 10px 4px 10px;
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
+}
+.topNavbar::-webkit-scrollbar {
+  // width: 4px;
+  height: 6px;
+  background-color: #fff;
+}
+.topNavbar::-webkit-scrollbar-thumb {
+  background: #ccc;
 }
 .tag {
   display: inline-flex;

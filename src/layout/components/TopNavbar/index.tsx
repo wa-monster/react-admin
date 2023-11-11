@@ -7,7 +7,7 @@ import { t } from "i18next";
 const TagComponent = (props: any) => {
   const { v, pathname } = props;
   const navigate = useNavigate();
-  const { tags } = useStore();
+  const { tags, theme } = useStore();
 
   const closeTag = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
@@ -30,8 +30,11 @@ const TagComponent = (props: any) => {
       className={`${styles.tag} ${
         v.pathname === pathname ? styles.active : ""
       }`}
+      style={{
+        backgroundColor: v.pathname === pathname ? theme.colorPrimary : "",
+      }}
     >
-      <span>{t(v.handle.name)}</span>
+      <span style={{ whiteSpace: "nowrap" }}>{t(v.handle.name)}</span>
       {v.pathname !== "/home" ? (
         <span className={styles.closeTag} onClick={(e) => closeTag(e, v)}>
           x
@@ -73,6 +76,26 @@ const TopNavbar = () => {
         pathname={location.pathname}
         key="00-00"
       ></TagComponent>
+      {tags.openTags.map((v) => {
+        return (
+          <TagComponent
+            onClick={() => clickToNavigate(v.pathname)}
+            v={v}
+            pathname={location.pathname}
+            key={v.id}
+          ></TagComponent>
+        );
+      })}
+      {tags.openTags.map((v) => {
+        return (
+          <TagComponent
+            onClick={() => clickToNavigate(v.pathname)}
+            v={v}
+            pathname={location.pathname}
+            key={v.id}
+          ></TagComponent>
+        );
+      })}
       {tags.openTags.map((v) => {
         return (
           <TagComponent
