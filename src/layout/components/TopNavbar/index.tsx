@@ -65,8 +65,18 @@ const TopNavbar = () => {
       navigate(pathname);
     }
   };
+  const handleContextMenu = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log("111111");
+  };
   return (
-    <div className={styles.topNavbar}>
+    <div
+      onContextMenu={(e) => handleContextMenu(e)}
+      className={styles.topNavbar}
+    >
       <TagComponent
         onClick={() => clickToNavigate("/home")}
         v={{
@@ -76,26 +86,6 @@ const TopNavbar = () => {
         pathname={location.pathname}
         key="00-00"
       ></TagComponent>
-      {tags.openTags.map((v) => {
-        return (
-          <TagComponent
-            onClick={() => clickToNavigate(v.pathname)}
-            v={v}
-            pathname={location.pathname}
-            key={v.id}
-          ></TagComponent>
-        );
-      })}
-      {tags.openTags.map((v) => {
-        return (
-          <TagComponent
-            onClick={() => clickToNavigate(v.pathname)}
-            v={v}
-            pathname={location.pathname}
-            key={v.id}
-          ></TagComponent>
-        );
-      })}
       {tags.openTags.map((v) => {
         return (
           <TagComponent
