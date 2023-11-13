@@ -65,13 +65,28 @@ const TopNavbar = () => {
       navigate(pathname);
     }
   };
+  const [isShowContextMenu, setShow] = useState(false);
+  const [topLeft, setTopLeft] = useState([0, 0]);
   const handleContextMenu = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log("111111");
+    console.log("111111", e);
+    setTopLeft([e.clientX, e.clientY]);
+    setShow(true);
   };
+  useEffect(() => {
+    const clickMenu = () => {
+      setShow(false);
+    };
+    document.addEventListener("click", clickMenu);
+    document.addEventListener("contextmenu", clickMenu);
+    return () => {
+      document.removeEventListener("click", clickMenu);
+      document.removeEventListener("contextmenu", clickMenu);
+    };
+  }, []);
   return (
     <div
       onContextMenu={(e) => handleContextMenu(e)}
@@ -96,6 +111,17 @@ const TopNavbar = () => {
           ></TagComponent>
         );
       })}
+      {isShowContextMenu ? (
+        <div
+          className={styles.contextMenu}
+          style={{ left: topLeft[0] + "px", top: topLeft[1] + "px" }}
+        >
+          <div>screenY</div>
+          <div>screenY</div>
+          <div>screenY</div>
+          <div>screenY</div>
+        </div>
+      ) : null}
     </div>
   );
 };
