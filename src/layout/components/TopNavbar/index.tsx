@@ -3,7 +3,11 @@ import styles from "./index.module.less";
 import { useLocation, useMatches, useNavigate } from "react-router-dom";
 import { observer, useStore } from "@/store/index";
 import { t } from "i18next";
-
+import {
+  RedoOutlined,
+  ScissorOutlined,
+  CloseOutlined,
+} from "@ant-design/icons";
 const TagComponent = (props: any) => {
   const { v, pathname } = props;
   const navigate = useNavigate();
@@ -80,13 +84,19 @@ const TopNavbar = () => {
     const clickMenu = () => {
       setShow(false);
     };
-    document.addEventListener("click", clickMenu);
+    document.addEventListener("click", clickMenu, false);
     document.addEventListener("contextmenu", clickMenu);
     return () => {
       document.removeEventListener("click", clickMenu);
       document.removeEventListener("contextmenu", clickMenu);
     };
   }, []);
+
+  const reloadPage = () => {
+    console.log("11111111");
+  };
+  const deleteOther = () => {};
+  const deleteAll = () => {};
   return (
     <div
       onContextMenu={(e) => handleContextMenu(e)}
@@ -116,10 +126,24 @@ const TopNavbar = () => {
           className={styles.contextMenu}
           style={{ left: topLeft[0] + "px", top: topLeft[1] + "px" }}
         >
-          <div>screenY</div>
-          <div>screenY</div>
-          <div>screenY</div>
-          <div>screenY</div>
+          <div onClick={() => reloadPage()} className={styles.contextMenuItem}>
+            <span>
+              <RedoOutlined />
+            </span>
+            <span>刷新页面</span>
+          </div>
+          <div onClick={() => deleteOther()} className={styles.contextMenuItem}>
+            <span>
+              <ScissorOutlined />
+            </span>
+            <span>关闭其他</span>
+          </div>
+          <div onClick={() => deleteAll()} className={styles.contextMenuItem}>
+            <span>
+              <CloseOutlined />
+            </span>
+            <span>全部关闭</span>
+          </div>
         </div>
       ) : null}
     </div>
