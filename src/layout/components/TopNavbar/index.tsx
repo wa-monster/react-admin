@@ -9,7 +9,7 @@ import {
   CloseOutlined,
 } from "@ant-design/icons";
 const TagComponent = (props: any) => {
-  const { v, pathname } = props;
+  const { v, pathname, onContextMenu } = props;
   const navigate = useNavigate();
   const { tags, theme } = useStore();
 
@@ -30,6 +30,7 @@ const TagComponent = (props: any) => {
   };
   return (
     <div
+      onContextMenu={onContextMenu}
       onClick={props.onClick}
       className={`${styles.tag} ${
         v.pathname === pathname ? styles.active : ""
@@ -51,10 +52,9 @@ const TopNavbar = () => {
   const location = useLocation();
   const matches = useMatches();
   const navigate = useNavigate();
-  const { tags } = useStore();
+  const { tags, layout } = useStore();
 
   useEffect(() => {
-    console.log("matches", matches);
     const current = matches[matches.length - 1];
     if (current.pathname !== "/" && current.pathname !== "/home") {
       tags.setTags(current);
@@ -71,12 +71,16 @@ const TopNavbar = () => {
   };
   const [isShowContextMenu, setShow] = useState(false);
   const [topLeft, setTopLeft] = useState([0, 0]);
+  const [currentContextMenuTag, setCMTag] = useState<
+    { pathname: string } & Record<string, any>
+  >();
   const handleContextMenu = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    tag: { pathname: string } & Record<string, any>
   ) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log("111111", e);
+    setCMTag(tag);
     setTopLeft([e.clientX, e.clientY]);
     setShow(true);
   };
@@ -93,15 +97,23 @@ const TopNavbar = () => {
   }, []);
 
   const reloadPage = () => {
-    console.log("11111111");
+    layout.setContentDisabled(false);
+    setTimeout(() => {
+      layout.setContentDisabled(true);
+    }, 0);
   };
-  const deleteOther = () => {};
-  const deleteAll = () => {};
+  const deleteOther = () => {
+    if (currentContextMenuTag) {
+      tags.deleteOther(currentContextMenuTag);
+      navigate(currentContextMenuTag.pathname);
+    }
+  };
+  const deleteAll = () => {
+    tags.deleteAll();
+    navigate("/");
+  };
   return (
-    <div
-      onContextMenu={(e) => handleContextMenu(e)}
-      className={styles.topNavbar}
-    >
+    <div className={styles.topNavbar}>
       <TagComponent
         onClick={() => clickToNavigate("/home")}
         v={{
@@ -114,6 +126,9 @@ const TopNavbar = () => {
       {tags.openTags.map((v) => {
         return (
           <TagComponent
+            onContextMenu={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+              handleContextMenu(e, v)
+            }
             onClick={() => clickToNavigate(v.pathname)}
             v={v}
             pathname={location.pathname}

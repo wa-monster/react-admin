@@ -6,6 +6,7 @@ export const layoutBoxObj = {
   menuDisabled: true,
   logoJustIcon: false,
   menuJustIcon: false,
+  contentDisabled: true,
   templateAreas: `
     "logo top"
     "menu content"
@@ -27,6 +28,9 @@ export const layoutBoxObj = {
   },
   setMenuJustIcon(bool: boolean) {
     this.menuJustIcon = bool;
+  },
+  setContentDisabled(bool: boolean) {
+    this.contentDisabled = bool;
   },
   // 根据开关有8种布局
   updateLayout() {

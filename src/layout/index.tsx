@@ -65,7 +65,7 @@ function Layout() {
       <Setting></Setting>
       {/* 右下菜单 */}
       <div className={styles.content}>
-        <Outlet />
+        {layout.contentDisabled ? <Outlet /> : null}
       </div>
     </div>
   );
