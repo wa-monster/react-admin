@@ -129,6 +129,7 @@ const TopHeader = () => {
     getBread();
   }, [location, locale]);
   const outLogin = () => {
+    localStorage.removeItem("token");
     navigate("/login", { replace: true });
   };
 

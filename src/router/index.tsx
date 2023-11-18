@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
-	createHashRouter,
+  createHashRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
@@ -43,10 +43,10 @@ const routers = [
     element: <Layout />,
     children: [
       // 重定向导/home
-      {
-        path: "/",
-        element: <Navigate to={"/home"} />,
-      },
+      // {
+      //   path: "/",
+      //   element: <Navigate to={"/home"} />,
+      // },
       {
         path: "/home",
         element: <FactorySuspense ele={Home} />,

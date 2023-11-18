@@ -40,6 +40,7 @@ function Login() {
       user.setUserName("");
     }
     if (values.username === "yang" && values.password === "yang") {
+      localStorage.setItem("token", "111");
       navigate("/", { replace: true });
     }
   };

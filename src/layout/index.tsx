@@ -10,6 +10,8 @@ import Setting from "./components/Setting";
 import { theme } from "antd";
 import type { GlobalToken } from "antd";
 import { useStore, observer } from "@/store/index";
+import AuthRoute from "@/router/authRoute";
+
 const { useToken } = theme;
 interface propsType {
   token: GlobalToken;
@@ -65,7 +67,7 @@ function Layout() {
       <Setting></Setting>
       {/* 右下菜单 */}
       <div className={styles.content}>
-        {layout.contentDisabled ? <Outlet /> : null}
+        <AuthRoute>{layout.contentDisabled ? <Outlet /> : null}</AuthRoute>
       </div>
     </div>
   );

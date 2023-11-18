@@ -102,6 +102,16 @@ const TopNavbar = () => {
       layout.setContentDisabled(true);
     }, 0);
   };
+  const deleteSelf = () => {
+    if (currentContextMenuTag) {
+      tags.deleteTag(currentContextMenuTag);
+      if (tags.openTags.length !== 0) {
+        navigate(tags.openTags[tags.openTags.length - 1].pathname);
+      } else {
+        navigate("/home");
+      }
+    }
+  };
   const deleteOther = () => {
     if (currentContextMenuTag) {
       tags.deleteOther(currentContextMenuTag);
@@ -146,6 +156,12 @@ const TopNavbar = () => {
               <RedoOutlined />
             </span>
             <span>刷新页面</span>
+          </div>
+          <div onClick={() => deleteSelf()} className={styles.contextMenuItem}>
+            <span>
+              <ScissorOutlined />
+            </span>
+            <span>关闭当前</span>
           </div>
           <div onClick={() => deleteOther()} className={styles.contextMenuItem}>
             <span>
