@@ -22,5 +22,9 @@
     "顶部信息":"TopInfo",
     "侧边菜单":"SideMenu",
     "当其他两项关闭，logo也会自动关闭":"When the other two items are closed, the logo will also automatically close",
-    "主题颜色":"ThemeColor"
+    "主题颜色":"ThemeColor",
+    "刷新页面":"refresh",
+    "关闭当前":"close-self",
+    "关闭其他":"close-other",
+    "全部关闭":"close-all"
 }

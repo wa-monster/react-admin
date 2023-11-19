@@ -155,25 +155,25 @@ const TopNavbar = () => {
             <span>
               <RedoOutlined />
             </span>
-            <span>刷新页面</span>
+            <span> {t("刷新页面")}</span>
           </div>
           <div onClick={() => deleteSelf()} className={styles.contextMenuItem}>
             <span>
               <ScissorOutlined />
             </span>
-            <span>关闭当前</span>
+            <span>{t("关闭当前")}</span>
           </div>
           <div onClick={() => deleteOther()} className={styles.contextMenuItem}>
             <span>
               <ScissorOutlined />
             </span>
-            <span>关闭其他</span>
+            <span>{t("关闭其他")}</span>
           </div>
           <div onClick={() => deleteAll()} className={styles.contextMenuItem}>
             <span>
               <CloseOutlined />
             </span>
-            <span>全部关闭</span>
+            <span>{t("全部关闭")}</span>
           </div>
         </div>
       ) : null}
