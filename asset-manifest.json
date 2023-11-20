@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.135049a5.css",
-    "main.js": "/static/js/main.ff854ce8.js",
-    "static/js/434.199cd02c.chunk.js": "/static/js/434.199cd02c.chunk.js",
-    "static/css/98.9679fd9d.chunk.css": "/static/css/98.9679fd9d.chunk.css",
-    "static/js/98.69f72e09.chunk.js": "/static/js/98.69f72e09.chunk.js",
-    "static/css/632.9de53ad7.chunk.css": "/static/css/632.9de53ad7.chunk.css",
-    "static/js/632.c370ffa1.chunk.js": "/static/js/632.c370ffa1.chunk.js",
-    "static/js/349.5ad1d397.chunk.js": "/static/js/349.5ad1d397.chunk.js",
-    "static/js/783.a3df41a0.chunk.js": "/static/js/783.a3df41a0.chunk.js",
-    "static/js/751.732aae14.chunk.js": "/static/js/751.732aae14.chunk.js",
-    "static/js/86.fff0d96b.chunk.js": "/static/js/86.fff0d96b.chunk.js",
-    "static/js/499.85477267.chunk.js": "/static/js/499.85477267.chunk.js",
-    "static/js/196.6483b91f.chunk.js": "/static/js/196.6483b91f.chunk.js",
-    "static/js/323.61c8d82e.chunk.js": "/static/js/323.61c8d82e.chunk.js",
-    "index.html": "/index.html"
+    "main.css": "/yang-admin/static/css/main.77dabc99.css",
+    "main.js": "/yang-admin/static/js/main.619dbd9b.js",
+    "static/js/434.ba03c9ee.chunk.js": "/yang-admin/static/js/434.ba03c9ee.chunk.js",
+    "static/css/98.9679fd9d.chunk.css": "/yang-admin/static/css/98.9679fd9d.chunk.css",
+    "static/js/98.69f72e09.chunk.js": "/yang-admin/static/js/98.69f72e09.chunk.js",
+    "static/css/632.9de53ad7.chunk.css": "/yang-admin/static/css/632.9de53ad7.chunk.css",
+    "static/js/632.53d6692e.chunk.js": "/yang-admin/static/js/632.53d6692e.chunk.js",
+    "static/js/349.5ad1d397.chunk.js": "/yang-admin/static/js/349.5ad1d397.chunk.js",
+    "static/js/783.a3df41a0.chunk.js": "/yang-admin/static/js/783.a3df41a0.chunk.js",
+    "static/js/751.732aae14.chunk.js": "/yang-admin/static/js/751.732aae14.chunk.js",
+    "static/js/86.fff0d96b.chunk.js": "/yang-admin/static/js/86.fff0d96b.chunk.js",
+    "static/js/499.85477267.chunk.js": "/yang-admin/static/js/499.85477267.chunk.js",
+    "static/js/323.3b263252.chunk.js": "/yang-admin/static/js/323.3b263252.chunk.js",
+    "index.html": "/yang-admin/index.html"
   },
   "entrypoints": [
-    "static/css/main.135049a5.css",
-    "static/js/main.ff854ce8.js"
+    "static/css/main.77dabc99.css",
+    "static/js/main.619dbd9b.js"
   ]
 }
