@@ -34,10 +34,11 @@ module.exports = {
   plugins: ["@typescript-eslint", "react"],
   rules: {
     semi: 2,
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "no-debugger": "warn",
     "prefer-const": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
   },
   settings: {
     react: {
