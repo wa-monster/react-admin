@@ -23,9 +23,10 @@ jobs:
           persist-credentials: false
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: pnpm-setup
+        uses: pnpm/action-setup@v2
       - name: Install and Build
         run: |
-          npm i pnpm
           pnpm install
           pnpm run build
       - name: Deploy
