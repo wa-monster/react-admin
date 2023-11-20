@@ -6,12 +6,6 @@ on:
   push:
     branches: ["main"]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -36,7 +30,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
+          ACCESS_TOKEN: ${{ secrets.YANGADMINTOKEN }}
           GITHUB_TOKEN: ${{ secrets.YANGADMINTOKEN }}
-          BASE_BRANCH: master
           branch: gh-pages
           folder: yang-amdin.org
