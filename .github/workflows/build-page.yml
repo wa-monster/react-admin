@@ -25,6 +25,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install and Build
         run: |
+          npm i pnpm
           pnpm install
           pnpm run build
       - name: Deploy
