@@ -36,5 +36,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
+          GITHUB_TOKEN: ${{ secrets.YANGADMINTOKEN }}
           branch: gh-pages
           folder: yang-amdin.org
