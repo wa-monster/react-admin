@@ -6,9 +6,14 @@ import {
   ArrowDownOutlined,
   MessageOutlined,
   TeamOutlined,
+  AppstoreAddOutlined,
+  AuditOutlined,
+  DeploymentUnitOutlined,
+  MehOutlined,
 } from "@ant-design/icons";
 import { Card } from "antd";
 import ReactEcharts from "echarts-for-react";
+import { useNavigate } from "react-router-dom";
 // import echarts from "echarts";
 const HomeCard = ({
   children,
@@ -31,17 +36,29 @@ const QuickCard = (props: {
   return (
     <div
       className="w-28 h-28 flex flex-col justify-center items-center hover:shadow-lg cursor-pointer"
-      style={{ backgroundColor: props.bgColor }}
-      onClick={props.handleClick()}
+      onClick={props.handleClick}
     >
-      <div className="w-20 h-20 p-6">
+      <div
+        className="w-20 h-20 p-6 rounded-lg"
+        style={{ backgroundColor: props.bgColor + "55", color: props.bgColor }}
+      >
         <div className="w-full h-full">{props.children}</div>
       </div>
-      <div style={{ textAlign: "center" }}>{props.label}</div>
+      <div
+        style={{
+          textAlign: "center",
+          color: "000",
+          margin: "5px 0",
+          fontWeight: "500",
+        }}
+      >
+        {props.label}
+      </div>
     </div>
   );
 };
 function Home() {
+  const navigate = useNavigate();
   const option1 = {
     xAxis: {
       type: "category",
@@ -72,17 +89,68 @@ function Home() {
       },
     ],
   };
+  const color = [
+    "#c23531",
+    "#2f4554",
+    "#61a0a8",
+    "#d48265",
+    "#91c7ae",
+    "#749f83",
+    "#ca8622",
+    "#bda29a",
+    "#6e7074",
+    "#546570",
+    "#c4ccd3",
+  ];
+
   const QuickCardList = [
     {
       label: "用户管理",
-      bgColor: "#fff",
-      handleClick: () => {},
+      handleClick: () => {
+        navigate("/systemManage/userManage");
+      },
+      bgColor: "",
       children: <TeamOutlined style={{ fontSize: "32px" }} />,
     },
+    {
+      label: "角色管理",
+      bgColor: "",
+      handleClick: () => {
+        navigate("/systemManage/roleManage");
+      },
+      children: <AuditOutlined style={{ fontSize: "32px" }} />,
+    },
+    {
+      label: "菜单管理",
+      bgColor: "",
+      handleClick: () => {
+        navigate("/systemManage/menuManage");
+      },
+      children: <AppstoreAddOutlined style={{ fontSize: "32px" }} />,
+    },
+    {
+      label: "聚合蜂窝图",
+      bgColor: "",
+      handleClick: () => {
+        navigate("/systemManage/aggregatedHex");
+      },
+      children: <DeploymentUnitOutlined style={{ fontSize: "32px" }} />,
+    },
+    {
+      label: "个人中心",
+      bgColor: "",
+      handleClick: () => {
+        navigate("/personal");
+      },
+      children: <MehOutlined style={{ fontSize: "32px" }} />,
+    },
   ];
+  QuickCardList.forEach((v, i) => {
+    (v as any).bgColor = color[i];
+  });
   return (
     <div className="home grid gap-3">
-      <div className="grid grid-cols-4 gap-4 h-24 bg-white p-4 box-border">
+      <div className="grid grid-cols-4 gap-4 h-24 bg-white p-4 box-border ">
         <HomeCard className="bg-[#33cabb]">
           <div>
             <DollarOutlined style={{ fontSize: "30px" }} />
@@ -121,7 +189,12 @@ function Home() {
         </HomeCard>
       </div>
       <Card title="快捷入口" bordered={false}>
-        <div className="flex">
+        <div
+          className="grid justify-between justify-items-center"
+          style={{
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          }}
+        >
           {QuickCardList.map((v, i) => {
             return (
               <QuickCard

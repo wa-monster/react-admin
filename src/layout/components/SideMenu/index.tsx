@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -17,7 +17,13 @@ function SideMenu() {
   const navigate = useNavigate();
   const location = useLocation();
   const pathnameArr = location.pathname.split("/").filter((v) => v !== "");
-  const defaultSelectedKeys = pathnameArr[pathnameArr.length - 1];
+
+  const [defaultSelectedKeys, setSelectKeys] = useState([""]);
+  useEffect(() => {
+    const pathnameArr = location.pathname.split("/").filter((v) => v !== "");
+    // const defaultSelectedKeys = ;
+    setSelectKeys([pathnameArr[pathnameArr.length - 1]]);
+  }, [location]);
   const defaultOpenKeys = pathnameArr.length > 1 ? [pathnameArr[0]] : undefined;
 
   const { layout } = useStore();
@@ -57,7 +63,7 @@ function SideMenu() {
   return (
     <Menu
       defaultOpenKeys={defaultOpenKeys}
-      defaultSelectedKeys={[defaultSelectedKeys]}
+      selectedKeys={defaultSelectedKeys}
       mode="inline"
       theme="dark"
       items={items}
