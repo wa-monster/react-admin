@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .home-card{
+  .home-card {
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -11,37 +11,82 @@
     padding: 10px;
     color: #fff;
   }
-  .home-card-num{
+  .home-card-num {
     font-size: 24px;
-    display:  inline-block;
+    display: inline-block;
     margin-right: 8px;
   }
 }
 
-html,body{
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: 12px;
 }
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-#root{
+#root {
   width: 100%;
   height: 100%;
 }
 
-:root{
+:root {
   /* --base:#0958d9; */
+}
+
+@media (min-width: 640px) {
+  html,
+  body {
+    font-size: 6px;
+  }
+}
+@media (min-width: 768px) {
+  html,
+  body {
+    font-size: 8px;
+  }
+}
+@media (min-width: 1024px) {
+  html,
+  body {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1280px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1536px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 2180px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 2560px) {
+  html,
+  body {
+    font-size: 18px;
+  }
 }

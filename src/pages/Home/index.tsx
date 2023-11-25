@@ -25,7 +25,7 @@ const HomeCard = ({
   return <div className={`home-card ${className}`}>{children}</div>;
 };
 const ChartBox = (props: { option: Record<string, any> }) => {
-  return <ReactEcharts option={props.option} />;
+  return <ReactEcharts style={{ height: "100%" }} option={props.option} />;
 };
 const QuickCard = (props: {
   children: any;
@@ -62,14 +62,28 @@ function Home() {
   const option1 = {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月",
+        "8月",
+        "9月",
+        "10月",
+        "11月",
+        "12月",
+      ],
     },
     yAxis: {
       type: "value",
+      name: "访问趋势",
     },
     series: [
       {
-        data: [150, 230, 224, 218, 135, 147, 260],
+        data: [15, 23, 24, 21, 35, 47, 60, 67, 77, 87, 91, 124],
         type: "line",
       },
     ],
@@ -77,18 +91,33 @@ function Home() {
   const option2 = {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月",
+        "8月",
+        "9月",
+        "10月",
+        "11月",
+        "12月",
+      ],
     },
     yAxis: {
       type: "value",
+      name: "每月收入",
     },
     series: [
       {
-        data: [120, 200, 150, 80, 70, 110, 130],
+        data: [120, 200, 105, 80, 70, 101, 130, 102, 105, 140, 70, 505],
         type: "bar",
       },
     ],
   };
+
   const color = [
     "#c23531",
     "#2f4554",
@@ -102,7 +131,6 @@ function Home() {
     "#546570",
     "#c4ccd3",
   ];
-
   const QuickCardList = [
     {
       label: "用户管理",
@@ -132,7 +160,7 @@ function Home() {
       label: "聚合蜂窝图",
       bgColor: "",
       handleClick: () => {
-        navigate("/systemManage/aggregatedHex");
+        navigate("/technicalStudy/aggregatedHex");
       },
       children: <DeploymentUnitOutlined style={{ fontSize: "32px" }} />,
     },
@@ -149,7 +177,10 @@ function Home() {
     (v as any).bgColor = color[i];
   });
   return (
-    <div className="home grid gap-3">
+    <div
+      className="home grid gap-3 h-full"
+      style={{ gridTemplateRows: "6rem 14rem 30rem" }}
+    >
       <div className="grid grid-cols-4 gap-4 h-24 bg-white p-4 box-border ">
         <HomeCard className="bg-[#33cabb]">
           <div>
@@ -209,7 +240,7 @@ function Home() {
           })}
         </div>
       </Card>
-      <div className="grid grid-cols-2 gap-4 h-80 bg-white">
+      <div className="grid grid-cols-2 gap-4 h-full bg-white">
         <ChartBox option={option1}></ChartBox>
         <ChartBox option={option2}></ChartBox>
       </div>
