@@ -179,7 +179,7 @@ function Home() {
   return (
     <div
       className="home grid gap-3 h-full"
-      style={{ gridTemplateRows: "6rem 14rem 30rem" }}
+      style={{ gridTemplateRows: "6rem 14rem 34rem" }}
     >
       <div className="grid grid-cols-4 gap-4 h-24 bg-white p-4 box-border ">
         <HomeCard className="bg-[#33cabb]">
