@@ -1,0 +1,27 @@
+.tableWrap {
+  position: relative;
+  // flex: 1;
+  height: 100%;
+
+  //使用absolute原因在于，窗口resize时，可以即时获取窗口高度
+  //仅用flex无法做到
+  .table {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    :global {
+      //翻页部分
+      .ant-table-pagination.ant-pagination {
+        margin: 16px 0 0;
+      }
+
+      //表头不换行
+      .ant-table-thead > tr > th {
+        white-space: nowrap;
+      }
+    }
+  }
+}
