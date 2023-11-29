@@ -87,7 +87,6 @@ const RoleManage = () => {
           dataSource={dataSource}
           columns={columnsData}
           rowKey={(record: any) => record.id}
-          scroll={{ y: 600 }}
         />
       </div>
     </div>
