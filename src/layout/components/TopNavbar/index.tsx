@@ -52,8 +52,7 @@ const TopNavbar = () => {
   const location = useLocation();
   const matches = useMatches();
   const navigate = useNavigate();
-  const { tags, layout } = useStore();
-
+  const { tags, layout, theme } = useStore();
   useEffect(() => {
     const current = matches[matches.length - 1];
     if (current.pathname !== "/" && current.pathname !== "/home") {
@@ -149,7 +148,11 @@ const TopNavbar = () => {
       {isShowContextMenu ? (
         <div
           className={styles.contextMenu}
-          style={{ left: topLeft[0] + "px", top: topLeft[1] + "px" }}
+          style={{
+            left: topLeft[0] + "px",
+            top: topLeft[1] + "px",
+            backgroundColor: theme.colorPrimary,
+          }}
         >
           <div onClick={() => reloadPage()} className={styles.contextMenuItem}>
             <span>

@@ -5,24 +5,24 @@ const RoleManage = () => {
   const onFinish = () => {};
   const columnsData = [
     {
-      title: "用户编号",
+      title: "角色编号",
       dataIndex: "id",
       key: "id",
     },
     {
-      title: "用户名称",
-      dataIndex: "name",
-      key: "name",
+      title: "角色名称",
+      dataIndex: "roleName",
+      key: "roleName",
     },
     {
-      title: "手机号",
-      dataIndex: "phone",
-      key: "phone",
+      title: "角色描述",
+      dataIndex: "roleDes",
+      key: "roleDes",
     },
     {
-      title: "用户角色",
-      dataIndex: "role",
-      key: "role",
+      title: "所属部门",
+      dataIndex: "department",
+      key: "department",
     },
     {
       title: "创建时间",
@@ -44,9 +44,9 @@ const RoleManage = () => {
   ];
   const obj = {
     id: "1",
-    name: "懒羊羊",
-    phone: "19653456675",
-    role: "管理员",
+    roleName: "董事长",
+    roleDes: "董事长",
+    department: "懒羊羊公司董事长",
     createTime: "2023-11-29",
   };
   const dataSource = [];
@@ -67,7 +67,7 @@ const RoleManage = () => {
           autoComplete="off"
         >
           <Form.Item
-            label="用户名称"
+            label="角色名称"
             name="username"
             rules={[{ required: true, message: "请输入用户名称!" }]}
           >
@@ -81,12 +81,13 @@ const RoleManage = () => {
       <div className="pl-4 pr-4 p-2">
         <Button type="primary">新增</Button>
       </div>
-      <div style={{ height: "calc(100% - 14rem)" }}>
+      <div style={{ height: "calc(100% - 95px - 4rem)" }}>
         <ResizeTable
           className="h-full"
           dataSource={dataSource}
           columns={columnsData}
           rowKey={(record: any) => record.id}
+          scroll={{ y: 600 }}
         />
       </div>
     </div>
