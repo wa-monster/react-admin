@@ -81,7 +81,7 @@ const UserManage = () => {
       <div className="pl-4 pr-4 p-2">
         <Button type="primary">新增</Button>
       </div>
-      <div style={{ height: "calc(100% - 14rem)" }}>
+      <div style={{ height: "calc(100% - 95px - 4rem)" }}>
         <ResizeTable
           className="h-full"
           dataSource={dataSource}
