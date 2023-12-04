@@ -67,11 +67,11 @@ const RoleManage = () => {
           autoComplete="off"
         >
           <Form.Item
-            label="用户名称"
+            label="角色名称"
             name="username"
-            rules={[{ required: true, message: "请输入用户名称!" }]}
+            rules={[{ required: true, message: "请输入角色名称!" }]}
           >
-            <Input placeholder="请输入用户名称" />
+            <Input placeholder="请输入角色名称" />
           </Form.Item>
           <Form.Item>
             <Button type="primary">搜索</Button>
