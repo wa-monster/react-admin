@@ -10,9 +10,9 @@ import Layout from "@/layout";
 const Home = lazy(() => import("@/pages/Home"));
 const Hex = lazy(() => import("@/pages/Hex"));
 const Login = lazy(() => import("@/pages/Login"));
-const UserManage = lazy(() => import("@/pages/UserManage"));
-const RoleManage = lazy(() => import("@/pages/RoleManage"));
-const MenuManage = lazy(() => import("@/pages/MenuManage"));
+const UserManage = lazy(() => import("@/pages/System/UserManage"));
+const RoleManage = lazy(() => import("@/pages/System/RoleManage"));
+const MenuManage = lazy(() => import("@/pages/System/MenuManage"));
 const Personal = lazy(() => import("@/pages/Personal"));
 
 // Suspense工厂函数

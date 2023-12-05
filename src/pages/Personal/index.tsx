@@ -1,6 +1,10 @@
 import React from "react";
 
 const Personal = () => {
-  return <div>个人中心</div>;
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
 };
 export default Personal;

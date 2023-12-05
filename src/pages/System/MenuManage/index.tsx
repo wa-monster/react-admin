@@ -1,7 +1,9 @@
 import React from "react";
 import { Form, Input, Button, Table, Space } from "antd";
 import ResizeTable from "@/components/ResizeTable/index";
+import { useTranslation } from "react-i18next";
 const MenuManage = () => {
+  const { t } = useTranslation();
   const onFinish = () => {};
   const columnsData = [
     {
@@ -39,15 +41,16 @@ const MenuManage = () => {
       key: "action",
       render: (_: any, record: any) => (
         <Space size="middle">
-          <Button type="link">修改</Button>
+          <Button type="link">{t("修改")}</Button>
           <Button type="link" danger>
-            删除
+            {t("删除")}
           </Button>
         </Space>
       ),
     },
   ];
   const obj = {
+    id: 1,
     name: "菜单管理",
     icon: "19653456675",
     sort: "1",
@@ -57,8 +60,10 @@ const MenuManage = () => {
   };
   const dataSource = [];
   for (let i = 0; i <= 50; i++) {
-    dataSource.push({ ...obj });
+    dataSource.push({ ...obj, id: i + 1 });
   }
+  console.log("1111111111111111111111111111111111111111111111");
+
   return (
     <div className="bg-white h-full p-2 ">
       <div className=" m-2">
@@ -72,19 +77,19 @@ const MenuManage = () => {
           autoComplete="off"
         >
           <Form.Item
-            label="菜单名称"
+            label={t("菜单名称")}
             name="username"
-            rules={[{ required: true, message: "请输入菜单名称!" }]}
+            rules={[{ required: true, message: `${t("请输入菜单名称")}!` }]}
           >
-            <Input placeholder="请输入菜单名称" />
+            <Input placeholder={t("请输入菜单名称")} />
           </Form.Item>
           <Form.Item>
-            <Button type="primary">搜索</Button>
+            <Button type="primary">{t("搜索")}</Button>
           </Form.Item>
         </Form>
       </div>
       <div className="pl-4 pr-4 p-2">
-        <Button type="primary">新增</Button>
+        <Button type="primary">{t("新增")}</Button>
       </div>
       <div style={{ height: "calc(100% - 14rem)" }}>
         <ResizeTable

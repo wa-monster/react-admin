@@ -18,11 +18,12 @@ import {
 import { langMenu } from "@/router/index";
 import { useAntdI18n } from "@/i18n/antd";
 import type { TabsProps } from "antd";
+import UserJPG from "@/assets/img/user.jpg";
 const UserIcon = () => {
   return (
     <div className="flex items-center cursor-pointer">
       <img
-        src="https://th.bing.com/th/id/OIP.QXb0mLjpcyRvJERASa9QOQHaHa?pid=ImgDet&rs=1"
+        src={UserJPG}
         alt=""
         style={{
           width: "30px",
@@ -31,7 +32,7 @@ const UserIcon = () => {
           marginRight: "10px",
         }}
       />
-      <span>用户</span>
+      <span>{t("用户")}</span>
     </div>
   );
 };

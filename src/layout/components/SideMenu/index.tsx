@@ -43,6 +43,8 @@ function SideMenu() {
       icon,
     };
   };
+  console.log("22222222222222222222222222222222");
+
   const items = [
     getItem(t("首页"), "home", <AppstoreOutlined />),
     getItem(t("系统管理"), "systemManage", <ContainerOutlined />, [
