@@ -3,7 +3,7 @@ import { Drawer, Switch, theme, Tooltip, ColorPicker } from "antd";
 import { useState } from "react";
 import { SettingOutlined } from "@ant-design/icons";
 import styles from "./index.module.less";
-import { observer, useStore } from "@/store";
+import { useStore } from "@/store";
 import type { Color } from "antd/es/color-picker";
 const { useToken } = theme;
 import { t } from "i18next";

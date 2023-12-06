@@ -7,7 +7,7 @@ const MenuManage = () => {
   const onFinish = () => {};
   const columnsData = [
     {
-      title: "菜单名称",
+      title: t("菜单名称"),
       dataIndex: "name",
       key: "name",
     },
@@ -17,27 +17,27 @@ const MenuManage = () => {
       key: "icon",
     },
     {
-      title: "排序",
+      title: t("排序"),
       dataIndex: "sort",
       key: "sort",
     },
     {
-      title: "状态",
+      title: t("状态"),
       dataIndex: "status",
       key: "status",
     },
     {
-      title: "组件路径",
+      title: t("组件路径"),
       dataIndex: "url",
       key: "url",
     },
     {
-      title: "创建时间",
+      title: t("创建时间"),
       dataIndex: "createTime",
       key: "createTime",
     },
     {
-      title: "操作",
+      title: t("操作"),
       key: "action",
       render: (_: any, record: any) => (
         <Space size="middle">
@@ -62,7 +62,6 @@ const MenuManage = () => {
   for (let i = 0; i <= 50; i++) {
     dataSource.push({ ...obj, id: i + 1 });
   }
-  console.log("1111111111111111111111111111111111111111111111");
 
   return (
     <div className="bg-white h-full p-2 ">

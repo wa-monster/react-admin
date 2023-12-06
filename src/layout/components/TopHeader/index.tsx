@@ -44,7 +44,7 @@ const TopHeaderMessageContent = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
-      label: "未读",
+      label: t("未读"),
       children: (
         <div className="flex items-center justify-around">
           <UserIcon></UserIcon>
@@ -54,12 +54,12 @@ const TopHeaderMessageContent = () => {
     },
     {
       key: "2",
-      label: "已读",
+      label: t("已读"),
       children: "",
     },
     {
       key: "3",
-      label: "全部",
+      label: t("全部"),
       children: "",
     },
   ];
@@ -143,7 +143,7 @@ const TopHeader = () => {
       label: (
         <NavLink to="/personal">
           <UserOutlined />
-          个人中心
+          {t("个人中心")}
         </NavLink>
       ),
     },
@@ -166,7 +166,7 @@ const TopHeader = () => {
       key: "3",
       label: (
         <span onClick={outLogin}>
-          <LogoutOutlined /> 退出登录
+          <LogoutOutlined /> {t("退出登录")}
         </span>
       ),
     },

@@ -1,42 +1,44 @@
 import React from "react";
 import { Form, Input, Button, Table, Space } from "antd";
 import ResizeTable from "@/components/ResizeTable/index";
+import { useTranslation } from "react-i18next";
 const RoleManage = () => {
+  const { t } = useTranslation();
   const onFinish = () => {};
   const columnsData = [
     {
-      title: "角色编号",
+      title: t("角色编号"),
       dataIndex: "id",
       key: "id",
     },
     {
-      title: "角色名称",
+      title: t("角色名称"),
       dataIndex: "roleName",
       key: "roleName",
     },
     {
-      title: "角色描述",
+      title: t("角色描述"),
       dataIndex: "roleDes",
       key: "roleDes",
     },
     {
-      title: "所属部门",
+      title: t("所属部门"),
       dataIndex: "department",
       key: "department",
     },
     {
-      title: "创建时间",
+      title: t("创建时间"),
       dataIndex: "createTime",
       key: "createTime",
     },
     {
-      title: "操作",
+      title: t("操作"),
       key: "action",
       render: (_: any, record: any) => (
         <Space size="middle">
-          <Button type="link">修改</Button>
+          <Button type="link">{t("修改")}</Button>
           <Button type="link" danger>
-            删除
+            {t("删除")}
           </Button>
         </Space>
       ),
@@ -67,19 +69,19 @@ const RoleManage = () => {
           autoComplete="off"
         >
           <Form.Item
-            label="角色名称"
+            label={t("角色名称")}
             name="username"
-            rules={[{ required: true, message: "请输入角色名称!" }]}
+            rules={[{ required: true, message: `${t("请输入角色名称")}!` }]}
           >
-            <Input placeholder="请输入角色名称" />
+            <Input placeholder={t("请输入角色名称")} />
           </Form.Item>
           <Form.Item>
-            <Button type="primary">搜索</Button>
+            <Button type="primary">{t("搜索")}</Button>
           </Form.Item>
         </Form>
       </div>
       <div className="pl-4 pr-4 p-2">
-        <Button type="primary">新增</Button>
+        <Button type="primary">{t("新增")}</Button>
       </div>
       <div style={{ height: "calc(100% - 95px - 4rem)" }}>
         <ResizeTable
