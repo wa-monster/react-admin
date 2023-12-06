@@ -53,5 +53,14 @@
 	"用户名称": "User Name",
 	"手机号": "Phone",
 	"用户角色": "User Role",
-	"请输入用户名称": "Please Input User Name"
+	"请输入用户名称": "Please Input User Name",
+	"手机号码": "phone",
+	"创建日期": "Create Date",
+	"个人信息": "Personal Info",
+	"保存": "save",
+	"旧密码": "Old Password",
+	"新密码": "New Password",
+	"确认新密码": "Repeat New Password",
+	"基本资料": "Base Info",
+	"修改密码": "Change Password"
 }
