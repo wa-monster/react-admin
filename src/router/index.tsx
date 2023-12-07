@@ -8,7 +8,7 @@ import {
 import Loading from "@/components/Loading";
 import Layout from "@/layout";
 const Home = lazy(() => import("@/pages/Home"));
-const Hex = lazy(() => import("@/pages/Hex"));
+const Hex = lazy(() => import("@/pages/Study/Hex"));
 const Login = lazy(() => import("@/pages/Login"));
 const UserManage = lazy(() => import("@/pages/System/UserManage"));
 const RoleManage = lazy(() => import("@/pages/System/RoleManage"));
