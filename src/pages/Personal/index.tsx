@@ -19,6 +19,7 @@ import {
   FieldTimeOutlined,
 } from "@ant-design/icons";
 import { t } from "i18next";
+
 const Cell = ({
   label,
   value,
@@ -30,38 +31,54 @@ const Cell = ({
 }) => {
   return (
     <div>
-      <div>
-        <span>{icon}</span>
-        <span>{label}</span>
+      <div className="flex justify-between">
+        <div>
+          <span>{icon}</span>
+          <span>{label}</span>
+        </div>
+        <div>{value}</div>
       </div>
-      <div>{value}</div>
       <Divider />
     </div>
   );
 };
 const PasswordForm = () => {
+  const onFinish = (val: any) => {
+    console.log("val", val);
+  };
   return (
-    <Form>
+    <Form
+      onFinish={onFinish}
+      labelCol={{
+        span: 4,
+      }}
+      wrapperCol={{
+        span: 10,
+      }}
+      style={{
+        maxWidth: 600,
+      }}
+    >
       <Form.Item
         label={t("旧密码")}
-        name="username"
+        name="pwd"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input />
+        <Input.Password />
       </Form.Item>
       <Form.Item
         label={t("新密码")}
-        name="username"
+        name="oldpwd"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input />
+        <Input.Password />
       </Form.Item>
       <Form.Item
         label={t("确认新密码")}
-        name="username"
+        name="surepwd"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input />
+        <Input.Password />
       </Form.Item>
       <Form.Item>
         <Button type="primary">{t("保存")}</Button>
@@ -72,29 +89,43 @@ const PasswordForm = () => {
 
 const BseInfo = () => {
   const onChange = () => {};
+  const onFinish = (val: any) => {
+    console.log("val", val);
+  };
   const [value] = useState();
   return (
-    <Form>
+    <Form
+      onFinish={onFinish}
+      labelCol={{
+        span: 4,
+      }}
+      wrapperCol={{
+        span: 10,
+      }}
+      style={{
+        maxWidth: 600,
+      }}
+    >
       <Form.Item
         label="用户昵称"
         name="nickName"
-        rules={[{ required: true, message: "" }]}
+        rules={[{ required: true, message: "用户昵称" }]}
       >
         <Input></Input>
       </Form.Item>
       <Form.Item
         label="手机号码"
-        name="nickName"
-        rules={[{ required: true, message: "" }]}
+        name="phone"
+        rules={[{ required: true, message: "手机号码" }]}
       >
         <Input></Input>
       </Form.Item>
       <Form.Item
         label="性别"
-        name="nickName"
-        rules={[{ required: true, message: "" }]}
+        name="sex"
+        rules={[{ required: true, message: "性别" }]}
       >
-        <Radio.Group onChange={onChange} value={value}>
+        <Radio.Group onChange={onChange}>
           <Radio value={1}>男</Radio>
           <Radio value={2}>女</Radio>
         </Radio.Group>
@@ -123,7 +154,7 @@ const Personal = () => {
     console.log(key);
   };
   return (
-    <Space className="h-full p-2 grid grid-cols-[25rem_1fr]">
+    <Space className=" p-2 grid grid-cols-[25rem_1fr] items-start">
       <Card
         className="left-box"
         title={t("个人信息")}
@@ -131,7 +162,7 @@ const Personal = () => {
         style={{ width: "100%" }}
       >
         <div className="p-2">
-          <div>
+          <div className="flex justify-center items-center">
             <Avatar src={<img src={userJPG} alt="avatar" />}></Avatar>
           </div>
           <Divider />
@@ -157,8 +188,12 @@ const Personal = () => {
           ></Cell>
         </div>
       </Card>
-      <div className="right-box"></div>
-      <Card title={t("基本资料")} bordered={false} style={{ width: "100%" }}>
+      <Card
+        className="right-box"
+        title={t("基本资料")}
+        bordered={false}
+        style={{ width: "100%" }}
+      >
         <div className="p-2">
           <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
         </div>
