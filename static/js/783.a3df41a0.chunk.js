@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkyang_template=self.webpackChunkyang_template||[]).push([[783],{2783:function(e,n,t){t.r(n);t(3330);var a=t(3726);n.default=function(){return(0,a.jsx)("div",{children:"role"})}}}]);
