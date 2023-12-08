@@ -55,9 +55,6 @@ const PasswordForm = () => {
       wrapperCol={{
         span: 10,
       }}
-      style={{
-        maxWidth: 600,
-      }}
     >
       <Form.Item
         label={t("旧密码")}
@@ -107,27 +104,27 @@ const BseInfo = () => {
       }}
     >
       <Form.Item
-        label="用户昵称"
+        label={t("用户昵称")}
         name="nickName"
-        rules={[{ required: true, message: "用户昵称" }]}
+        rules={[{ required: true, message: t("用户昵称") }]}
       >
         <Input></Input>
       </Form.Item>
       <Form.Item
-        label="手机号码"
+        label={t("手机号码")}
         name="phone"
-        rules={[{ required: true, message: "手机号码" }]}
+        rules={[{ required: true, message: t("手机号码") }]}
       >
         <Input></Input>
       </Form.Item>
       <Form.Item
-        label="性别"
+        label={t("性别")}
         name="sex"
-        rules={[{ required: true, message: "性别" }]}
+        rules={[{ required: true, message: t("性别") }]}
       >
         <Radio.Group onChange={onChange}>
-          <Radio value={1}>男</Radio>
-          <Radio value={2}>女</Radio>
+          <Radio value={1}>{t("男")}</Radio>
+          <Radio value={2}>{t("女")}</Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item>

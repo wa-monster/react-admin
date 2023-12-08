@@ -22,6 +22,7 @@
     "@types/react-dom": "^18.2.11",
     "ahooks": "^3.7.8",
     "antd": "^5.10.0",
+    "axios": "^1.6.2",
     "classnames": "^2.3.2",
     "cross-env": "^7.0.3",
     "dayjs": "1.11.10",

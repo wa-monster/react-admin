@@ -14,6 +14,7 @@ import {
 import { Card } from "antd";
 import ReactEcharts from "echarts-for-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 // import echarts from "echarts";
 const HomeCard = ({
   children,
@@ -58,28 +59,29 @@ const QuickCard = (props: {
   );
 };
 function Home() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const option1 = {
     xAxis: {
       type: "category",
       data: [
-        "1月",
-        "2月",
-        "3月",
-        "4月",
-        "5月",
-        "6月",
-        "7月",
-        "8月",
-        "9月",
-        "10月",
-        "11月",
-        "12月",
+        `1${t("月")}`,
+        `2${t("月")}`,
+        `3${t("月")}`,
+        `4${t("月")}`,
+        `5${t("月")}`,
+        `6${t("月")}`,
+        `7${t("月")}`,
+        `8${t("月")}`,
+        `9${t("月")}`,
+        `10${t("月")}`,
+        `11${t("月")}`,
+        `12${t("月")}`,
       ],
     },
     yAxis: {
       type: "value",
-      name: "访问趋势",
+      name: t("访问趋势"),
     },
     series: [
       {
@@ -92,23 +94,23 @@ function Home() {
     xAxis: {
       type: "category",
       data: [
-        "1月",
-        "2月",
-        "3月",
-        "4月",
-        "5月",
-        "6月",
-        "7月",
-        "8月",
-        "9月",
-        "10月",
-        "11月",
-        "12月",
+        `1${t("月")}`,
+        `2${t("月")}`,
+        `3${t("月")}`,
+        `4${t("月")}`,
+        `5${t("月")}`,
+        `6${t("月")}`,
+        `7${t("月")}`,
+        `8${t("月")}`,
+        `9${t("月")}`,
+        `10${t("月")}`,
+        `11${t("月")}`,
+        `12${t("月")}`,
       ],
     },
     yAxis: {
       type: "value",
-      name: "每月收入",
+      name: t("每月收入"),
     },
     series: [
       {
@@ -133,7 +135,7 @@ function Home() {
   ];
   const QuickCardList = [
     {
-      label: "用户管理",
+      label: t("用户管理"),
       handleClick: () => {
         navigate("/systemManage/userManage");
       },
@@ -141,7 +143,7 @@ function Home() {
       children: <TeamOutlined style={{ fontSize: "32px" }} />,
     },
     {
-      label: "角色管理",
+      label: t("角色管理"),
       bgColor: "",
       handleClick: () => {
         navigate("/systemManage/roleManage");
@@ -149,7 +151,7 @@ function Home() {
       children: <AuditOutlined style={{ fontSize: "32px" }} />,
     },
     {
-      label: "菜单管理",
+      label: t("菜单管理"),
       bgColor: "",
       handleClick: () => {
         navigate("/systemManage/menuManage");
@@ -157,7 +159,7 @@ function Home() {
       children: <AppstoreAddOutlined style={{ fontSize: "32px" }} />,
     },
     {
-      label: "聚合蜂窝图",
+      label: t("聚合蜂窝图"),
       bgColor: "",
       handleClick: () => {
         navigate("/technicalStudy/aggregatedHex");
@@ -165,7 +167,7 @@ function Home() {
       children: <DeploymentUnitOutlined style={{ fontSize: "32px" }} />,
     },
     {
-      label: "个人中心",
+      label: t("个人中心"),
       bgColor: "",
       handleClick: () => {
         navigate("/personal");
@@ -188,7 +190,7 @@ function Home() {
           </div>
           <div>
             <span className="home-card-num">10000</span>
-            <span>收入</span>
+            <span>{t("收入")}</span>
           </div>
         </HomeCard>
         <HomeCard className="bg-[#f96868]">
@@ -197,7 +199,7 @@ function Home() {
           </div>
           <div>
             <span className="home-card-num">200000</span>
-            <span>访问</span>
+            <span>{t("访问")}</span>
           </div>
         </HomeCard>
         <HomeCard className="bg-[#15c377]">
@@ -206,7 +208,7 @@ function Home() {
           </div>
           <div>
             <span className="home-card-num">1000</span>
-            <span>下载</span>
+            <span>{t("下载")}</span>
           </div>
         </HomeCard>
         <HomeCard className="bg-[#926dde]">
@@ -215,11 +217,11 @@ function Home() {
           </div>
           <div>
             <span className="home-card-num">203</span>
-            <span>留言</span>
+            <span>{t("留言")}</span>
           </div>
         </HomeCard>
       </div>
-      <Card title="快捷入口" bordered={false}>
+      <Card title={t("快捷入口")} bordered={false}>
         <div
           className="grid justify-between justify-items-center"
           style={{

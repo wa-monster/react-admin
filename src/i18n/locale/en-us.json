@@ -62,5 +62,17 @@
 	"新密码": "New Password",
 	"确认新密码": "Repeat New Password",
 	"基本资料": "Base Info",
-	"修改密码": "Change Password"
+	"修改密码": "Change Password",
+	"收入": "money",
+	"访问": "visit",
+	"下载": "download",
+	"留言": "message",
+	"快捷入口": "Quick Mehtod",
+	"月": "month",
+	"访问趋势": "Access Trends",
+	"每月收入": "Monthly Income",
+	"用户昵称": "nickname",
+	"性别": "sex",
+	"男": "man",
+	"女": "woman"
 }
