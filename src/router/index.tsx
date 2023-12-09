@@ -14,7 +14,9 @@ const UserManage = lazy(() => import("@/pages/System/UserManage"));
 const RoleManage = lazy(() => import("@/pages/System/RoleManage"));
 const MenuManage = lazy(() => import("@/pages/System/MenuManage"));
 const Personal = lazy(() => import("@/pages/Personal"));
-
+const AntVX6WorkFlow = lazy(
+  () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
+);
 // Suspense工厂函数
 function FactorySuspense({
   ele: Ele,
@@ -93,6 +95,14 @@ const routers = [
         children: [],
         handle: {
           name: "聚合蜂窝图",
+        },
+      },
+      {
+        path: "/workflow/AntVX6",
+        element: <FactorySuspense ele={AntVX6WorkFlow} />,
+        children: [],
+        handle: {
+          name: "AntVX6版本",
         },
       },
     ],
