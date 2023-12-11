@@ -43,7 +43,6 @@ function SideMenu() {
       icon,
     };
   };
-  console.log("22222222222222222222222222222222");
 
   const items = [
     getItem(t("首页"), "home", <AppstoreOutlined />),
@@ -54,6 +53,9 @@ function SideMenu() {
     ]),
     getItem(t("技术研究"), "technicalStudy", <MenuUnfoldOutlined />, [
       getItem(t("聚合蜂窝图"), "aggregatedHex", <PieChartOutlined />),
+    ]),
+    getItem(t("流程图"), "workflow", <MenuUnfoldOutlined />, [
+      getItem(t("antvX6"), "AntVX6", <PieChartOutlined />),
     ]),
   ];
   const selectMenu = ({ keyPath }: { keyPath: string[] }) => {

@@ -73,6 +73,11 @@ const TopNavbar = () => {
   const [currentContextMenuTag, setCMTag] = useState<
     { pathname: string } & Record<string, any>
   >();
+  const clickMenu = () => {
+    setShow(false);
+    document.removeEventListener("click", clickMenu);
+    document.removeEventListener("contextmenu", clickMenu);
+  };
   const handleContextMenu = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     tag: { pathname: string } & Record<string, any>
@@ -82,18 +87,9 @@ const TopNavbar = () => {
     setCMTag(tag);
     setTopLeft([e.clientX, e.clientY]);
     setShow(true);
-  };
-  useEffect(() => {
-    const clickMenu = () => {
-      setShow(false);
-    };
     document.addEventListener("click", clickMenu, false);
     document.addEventListener("contextmenu", clickMenu);
-    return () => {
-      document.removeEventListener("click", clickMenu);
-      document.removeEventListener("contextmenu", clickMenu);
-    };
-  }, []);
+  };
 
   const reloadPage = () => {
     layout.setContentDisabled(false);

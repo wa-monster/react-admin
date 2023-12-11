@@ -74,5 +74,7 @@
 	"用户昵称": "nickname",
 	"性别": "sex",
 	"男": "man",
-	"女": "woman"
+	"女": "woman",
+	"流程图": "workflow",
+	"antvX6": "antvX6"
 }
