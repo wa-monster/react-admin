@@ -1,33 +1,11 @@
 {
   "files": {
-    "main.css": "/yang-admin/static/css/main.a6dc9242.css",
-    "main.js": "/yang-admin/static/js/main.6072daeb.js",
-    "static/js/434.e4717d59.chunk.js": "/yang-admin/static/js/434.e4717d59.chunk.js",
-    "static/css/550.93235e52.chunk.css": "/yang-admin/static/css/550.93235e52.chunk.css",
-    "static/js/550.a0ce81f7.chunk.js": "/yang-admin/static/js/550.a0ce81f7.chunk.js",
-    "static/css/632.9de53ad7.chunk.css": "/yang-admin/static/css/632.9de53ad7.chunk.css",
-    "static/js/632.16bfd9df.chunk.js": "/yang-admin/static/js/632.16bfd9df.chunk.js",
-    "static/css/525.6137db74.chunk.css": "/yang-admin/static/css/525.6137db74.chunk.css",
-    "static/js/525.6219bfb9.chunk.js": "/yang-admin/static/js/525.6219bfb9.chunk.js",
-    "static/css/384.6137db74.chunk.css": "/yang-admin/static/css/384.6137db74.chunk.css",
-    "static/js/384.94878341.chunk.js": "/yang-admin/static/js/384.94878341.chunk.js",
-    "static/css/405.6137db74.chunk.css": "/yang-admin/static/css/405.6137db74.chunk.css",
-    "static/js/405.ab7bb4a6.chunk.js": "/yang-admin/static/js/405.ab7bb4a6.chunk.js",
-    "static/js/330.2295e389.chunk.js": "/yang-admin/static/js/330.2295e389.chunk.js",
-    "static/js/439.ae3226f2.chunk.js": "/yang-admin/static/js/439.ae3226f2.chunk.js",
-    "static/js/499.85477267.chunk.js": "/yang-admin/static/js/499.85477267.chunk.js",
-    "static/js/606.885634ae.chunk.js": "/yang-admin/static/js/606.885634ae.chunk.js",
-    "static/js/847.8c11b2d8.chunk.js": "/yang-admin/static/js/847.8c11b2d8.chunk.js",
-    "static/js/686.2bca5aa9.chunk.js": "/yang-admin/static/js/686.2bca5aa9.chunk.js",
-    "static/js/328.8519474b.chunk.js": "/yang-admin/static/js/328.8519474b.chunk.js",
-    "static/js/303.f3c42260.chunk.js": "/yang-admin/static/js/303.f3c42260.chunk.js",
-    "static/js/316.59bdc04e.chunk.js": "/yang-admin/static/js/316.59bdc04e.chunk.js",
-    "static/js/949.75f25f89.chunk.js": "/yang-admin/static/js/949.75f25f89.chunk.js",
-    "static/media/user.jpg": "/yang-admin/static/media/user.b3872371ee2c024c7fd1.jpg",
+    "main.css": "/yang-admin/static/css/main.a13bc478.css",
+    "main.js": "/yang-admin/static/js/main.afca2367.js",
     "index.html": "/yang-admin/index.html"
   },
   "entrypoints": [
-    "static/css/main.a6dc9242.css",
-    "static/js/main.6072daeb.js"
+    "static/css/main.a13bc478.css",
+    "static/js/main.afca2367.js"
   ]
 }
