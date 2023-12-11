@@ -13,11 +13,13 @@ paths.appBuild = path.join(path.dirname(paths.appBuild), "./yang-amdin.org");
 //配置开发模式和打包模式
 const addCustom = () => {
   return (config) => {
+    config.entry = "/src/a1";
     if (process.env.NODE_ENV === "production") {
       config.devtool = false; //去除map文件// 关闭sourceMap
 
       // 配置打包后的文件位置
       // config.output.path = __dirname + "/dist";
+
       config.output.publicPath = "/yang-admin/";
       config.plugins = [
         ...config.plugins,
