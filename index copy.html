@@ -4,17 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-
-    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- <h1>Discoverthreejs.com - Nothing to see here yet :)</h1> -->
 
-    <div id="w" style="height: 50px">
-      <div>1能</div>
-      <div id="bb">2不能</div>
-      <div>3能</div>
+    <div id="w" style="height: 120px">
+      <div id="bb">2023-12-12</div>
+      <div>测试测试测试测试测试测试</div>
+      <div id="bb">2023-12-12</div>
+      <div>测试测试测试测试测试测试</div>
     </div>
     <div contenteditable="" style="height: 150px"></div>
     <!-- <div id="scene-container">
@@ -63,8 +61,10 @@
                 const blob = await clipboardItem.getType(type);
                 console.log(blob);
                 const res = await blob.text();
-                console.log("res1", res);
-                arr.push(res);
+                let str = res;
+                str = str.replace(/2023-12-12/g, "");
+                console.log("res1", str);
+                arr.push(str);
               }
             }
           }
