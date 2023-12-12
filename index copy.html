@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- <h1>Discoverthreejs.com - Nothing to see here yet :)</h1> -->
+
+    <div id="w" style="height: 50px">
+      <div>1能</div>
+      <div id="bb">2不能</div>
+      <div>3能</div>
+    </div>
+    <div contenteditable="" style="height: 150px"></div>
+    <!-- <div id="scene-container">
+    </div> -->
+    <!-- <script type="module" src="./main.js"></script> -->
+    <script>
+      const w = document.querySelector("#w");
+      function abc(text) {
+        const type = "text/plain";
+        const blob = new Blob([text], { type });
+        const data = [new ClipboardItem({ [type]: blob })];
+
+        navigator.clipboard.write(data).then(
+          () => {
+            /* success */
+            console.log("2222222222");
+            getClipboardContents();
+          },
+          () => {
+            /* failure */
+          }
+        );
+      }
+      w.addEventListener("copy", (event) => {
+        setTimeout(() => {
+          const selection = document.getSelection();
+          var clipboardData = window.clipboardData;
+          getClipboardContents();
+        }, 100);
+      });
+      async function getClipboardContents() {
+        try {
+          let arr = [];
+          const clipboardItems = await navigator.clipboard.read();
+          for (const clipboardItem of clipboardItems) {
+            for (const type of clipboardItem.types) {
+              if (type === "text/html") {
+                const blob = await clipboardItem.getType(type);
+                console.log(blob);
+                const res = await blob.text();
+                let str = res;
+                str = str.replace(/<div id="bb"[\d\D]+?>[\d\D]+?<\/div>/g, "");
+                console.log("res2", res);
+                arr.push(str);
+              } else {
+                const blob = await clipboardItem.getType(type);
+                console.log(blob);
+                const res = await blob.text();
+                console.log("res1", res);
+                arr.push(res);
+              }
+            }
+          }
+          console.log("arr", arr);
+          bbc(arr);
+        } catch (err) {
+          console.error(err.name, err.message);
+        }
+      }
+      async function bbc(arr) {
+        try {
+          const text = new Blob([arr[0]], {
+            type: "text/plain",
+          });
+          const html = new Blob([arr[1]], {
+            type: "text/html",
+          });
+          await navigator.clipboard.write([
+            new ClipboardItem({
+              "text/plain": text,
+              "text/html": html,
+            }),
+          ]);
+          console.log("Image copied.");
+        } catch (err) {
+          console.error(err.name, err.message);
+        }
+      }
+    </script>
+  </body>
+</html>
