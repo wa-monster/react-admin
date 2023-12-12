@@ -6,8 +6,8 @@ const data = {
     {
       id: "node1",
       shape: "rect",
-      x: 40,
-      y: 40,
+      x: 240,
+      y: 240,
       width: 100,
       height: 40,
       label: "hello",
@@ -25,8 +25,8 @@ const data = {
     {
       id: "node2",
       shape: "rect",
-      x: 160,
-      y: 180,
+      x: 360,
+      y: 380,
       width: 100,
       height: 40,
       label: "world",
@@ -63,17 +63,39 @@ const AntvX6WorkFlow = () => {
     if (container) {
       const graph = new Graph({
         container: container,
+        autoResize: true,
         width: 800,
-        height: 600,
+        height: 800,
         background: {
           color: "#F2F7FA",
         },
+        grid: {
+          visible: true,
+          type: "doubleMesh",
+          args: [
+            {
+              color: "#eee", // 主网格线颜色
+              thickness: 1, // 主网格线宽度
+            },
+            {
+              color: "#ddd", // 次网格线颜色
+              thickness: 1, // 次网格线宽度
+              factor: 4, // 主次网格线间隔
+            },
+          ],
+        },
+        panning: true,
+        mousewheel: true,
       });
       graph.fromJSON(data); // 渲染元素
-      graph.centerContent(); // 居中
+      graph.centerContent();
     }
   }, []);
-  return <div id="container"></div>;
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      <div id="container"></div>
+    </div>
+  );
 };
 
 export default AntvX6WorkFlow;

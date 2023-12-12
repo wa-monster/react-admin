@@ -38,6 +38,8 @@ export const langMenu = {
   menuManage: "菜单管理",
   technicalStudy: "技术研究",
   aggregatedHex: "聚合蜂窝图",
+  workflow: "工作流",
+  AntVX6: "AntVX6版本",
 };
 const routers = [
   {
