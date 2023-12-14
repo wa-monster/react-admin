@@ -92,8 +92,25 @@ const AntvX6WorkFlow = () => {
     }
   }, []);
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <div id="container"></div>
+    <div
+      style={{ width: "100%", height: "100%" }}
+      className="grid grid-rows-[1fr_6fr_3fr] grid-cols-1  gap-3"
+    >
+      <div
+        style={{ boxShadow: "0 0 10px #ccc" }}
+        className="bg-white relative z-10"
+      >
+        11111111
+      </div>
+      <div style={{ width: "100%", boxShadow: "0 0 10px #ccc" }}>
+        <div id="container"></div>
+      </div>
+      <div
+        style={{ boxShadow: "0 0 10px #ccc" }}
+        className="bg-white relative z-10"
+      >
+        22222222222
+      </div>
     </div>
   );
 };
