@@ -20,22 +20,6 @@
     <!-- <script type="module" src="./main.js"></script> -->
     <script>
       const w = document.querySelector("#w");
-      function abc(text) {
-        const type = "text/plain";
-        const blob = new Blob([text], { type });
-        const data = [new ClipboardItem({ [type]: blob })];
-
-        navigator.clipboard.write(data).then(
-          () => {
-            /* success */
-            console.log("2222222222");
-            getClipboardContents();
-          },
-          () => {
-            /* failure */
-          }
-        );
-      }
       w.addEventListener("copy", (event) => {
         setTimeout(() => {
           const selection = document.getSelection();
