@@ -1,12 +1,44 @@
 import React from "react";
 import { Graph } from "@antv/x6";
 import { useEffect } from "react";
-import { relative } from "path";
+import { register } from "@antv/x6-react-shape";
+import { Dropdown } from "antd";
+import { Snapline } from "@antv/x6-plugin-snapline";
+import PanelItem from "./components/PanelItem";
+import Styles from "./index.module.less";
+const CustomComponent = ({ node }: { node: any }) => {
+  const label = node.prop("label");
+  return (
+    <Dropdown
+      menu={{
+        items: [
+          {
+            key: "copy",
+            label: "复制",
+          },
+          {
+            key: "delete",
+            label: "删除",
+          },
+        ],
+      }}
+      trigger={["contextMenu"]}
+    >
+      <div className={Styles.customReactNode}>{label}</div>
+    </Dropdown>
+  );
+};
+register({
+  shape: "custom-react-node",
+  width: 100,
+  height: 40,
+  component: CustomComponent,
+});
 const data = {
   nodes: [
     {
       id: "node1",
-      shape: "rect",
+      shape: "custom-react-node",
       x: 240,
       y: 240,
       width: 100,
@@ -25,7 +57,7 @@ const data = {
     },
     {
       id: "node2",
-      shape: "rect",
+      shape: "custom-react-node",
       x: 360,
       y: 380,
       width: 100,
@@ -88,6 +120,7 @@ const AntvX6WorkFlow = () => {
         panning: true,
         mousewheel: true,
       });
+      graph.use(new Snapline({ enabled: true }));
       graph.fromJSON(data); // 渲染元素
       graph.centerContent();
     }
@@ -95,13 +128,20 @@ const AntvX6WorkFlow = () => {
   return (
     <div
       style={{ width: "100%", height: "100%" }}
-      className="grid grid-rows-[100px_1fr_200px] grid-cols-1  gap-3"
+      className="grid grid-rows-[6rem_1fr_12rem] grid-cols-1  gap-3"
     >
       <div
         style={{ boxShadow: "0 0 10px #ccc" }}
-        className="bg-white relative z-10"
+        className="bg-white relative z-10 p-2"
       >
-        11111111
+        <div className="h-8 flex items-center">节点</div>
+        <div className="h-12 flex gap-2">
+          <PanelItem></PanelItem>
+          <PanelItem></PanelItem>
+          <PanelItem></PanelItem>
+          <PanelItem></PanelItem>
+          <PanelItem></PanelItem>
+        </div>
       </div>
       <div
         style={{
@@ -110,13 +150,7 @@ const AntvX6WorkFlow = () => {
           boxShadow: "0 0 10px #ccc",
         }}
       >
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "relative",
-          }}
-        >
+        <div className="w-full h-full relative">
           <div id="container"></div>
         </div>
       </div>

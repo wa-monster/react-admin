@@ -14,6 +14,12 @@ dependencies:
   '@antv/x6':
     specifier: ^2.16.1
     version: 2.16.1
+  '@antv/x6-plugin-snapline':
+    specifier: ^2.1.7
+    version: 2.1.7(@antv/x6@2.16.1)
+  '@antv/x6-react-shape':
+    specifier: ^2.2.2
+    version: 2.2.2(@antv/x6@2.16.1)(react-dom@18.2.0)(react@18.2.0)
   '@testing-library/react':
     specifier: ^13.4.0
     version: 13.4.0(react-dom@18.2.0)(react@18.2.0)
@@ -266,6 +272,26 @@ packages:
 
   /@antv/x6-geometry@2.0.5:
     resolution: {integrity: sha512-MId6riEQkxphBpVeTcL4ZNXL4lScyvDEPLyIafvWMcWNTGK0jgkK7N20XSzqt8ltJb0mGUso5s56mrk8ysHu2A==, tarball: https://registry.npmmirror.com/@antv/x6-geometry/-/x6-geometry-2.0.5.tgz}
+    dev: false
+
+  /@antv/x6-plugin-snapline@2.1.7(@antv/x6@2.16.1):
+    resolution: {integrity: sha512-AsysoCb9vES0U2USNhEpYuO/W8I0aYfkhlbee5Kt4NYiMfQfZKQyqW/YjDVaS2pm38C1NKu1LdPVk/BBr4CasA==, tarball: https://registry.npmmirror.com/@antv/x6-plugin-snapline/-/x6-plugin-snapline-2.1.7.tgz}
+    peerDependencies:
+      '@antv/x6': ^2.x
+    dependencies:
+      '@antv/x6': 2.16.1
+    dev: false
+
+  /@antv/x6-react-shape@2.2.2(@antv/x6@2.16.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uwehrdNCPkgBpVfsxEQk1M77Q+q9D7+HkqIm4Fm3Oz4kzkKCoc3KoxCIoLimbANAhqAPEJ40sRR0ZY+lzmP7WQ==, tarball: https://registry.npmmirror.com/@antv/x6-react-shape/-/x6-react-shape-2.2.2.tgz}
+    peerDependencies:
+      '@antv/x6': ^2.x
+      react: '>=18.0.0'
+      react-dom: '>= 18.0.0'
+    dependencies:
+      '@antv/x6': 2.16.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@antv/x6@2.16.1:
