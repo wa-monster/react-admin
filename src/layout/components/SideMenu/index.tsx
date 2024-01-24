@@ -57,6 +57,9 @@ function SideMenu() {
     getItem(t("流程图"), "workflow", <MenuUnfoldOutlined />, [
       getItem(t("antvX6"), "AntVX6", <PieChartOutlined />),
     ]),
+    getItem(t("three"), "three", <MenuUnfoldOutlined />, [
+      getItem(t("001鸟"), "001", <PieChartOutlined />),
+    ]),
   ];
   const selectMenu = ({ keyPath }: { keyPath: string[] }) => {
     const pathUrl = "/" + keyPath.reverse().join("/");

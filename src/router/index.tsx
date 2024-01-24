@@ -14,6 +14,7 @@ const UserManage = lazy(() => import("@/pages/System/UserManage"));
 const RoleManage = lazy(() => import("@/pages/System/RoleManage"));
 const MenuManage = lazy(() => import("@/pages/System/MenuManage"));
 const Personal = lazy(() => import("@/pages/Personal"));
+const ThreeBirds = lazy(() => import("@/pages/Three/001"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -40,6 +41,7 @@ export const langMenu = {
   aggregatedHex: "聚合蜂窝图",
   workflow: "工作流",
   AntVX6: "AntVX6版本",
+  three: "three",
 };
 const routers = [
   {
@@ -105,6 +107,14 @@ const routers = [
         children: [],
         handle: {
           name: "AntVX6版本",
+        },
+      },
+      {
+        path: "/three/001",
+        element: <FactorySuspense ele={ThreeBirds} />,
+        children: [],
+        handle: {
+          name: "three",
         },
       },
     ],
