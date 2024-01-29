@@ -1,11 +1,14 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { setModel } from "./setModel";
 const gltfLoader = new GLTFLoader();
+const baseUrl = process.env.PUBLIC_URL;
+console.log("baseUrl", baseUrl);
+
 export const loadGLTF = async () => {
   const [FlamingoData, ParrotData, StorkData] = await Promise.all([
-    gltfLoader.loadAsync("/models/birds/Flamingo.glb"),
-    gltfLoader.loadAsync("/models/birds/Parrot.glb"),
-    gltfLoader.loadAsync("/models/birds/Stork.glb"),
+    gltfLoader.loadAsync(baseUrl + "/models/birds/Flamingo.glb"),
+    gltfLoader.loadAsync(baseUrl + "/models/birds/Parrot.glb"),
+    gltfLoader.loadAsync(baseUrl + "/models/birds/Stork.glb"),
   ]);
   const Flamingo = setModel(FlamingoData);
   Flamingo.position.set(5, 5, 0);
