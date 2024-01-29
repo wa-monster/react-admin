@@ -34,7 +34,6 @@ export const useAntdI18n = () => {
     dayjs.locale(dayjsLocaleObj[i18n.lang]);
     i18next.changeLanguage(i18nTypeObj[i18n.lang as keyof typeof i18nTypeObj]);
   }, [i18n.lang]);
-  console.log("i18n.lang", i18n.lang);
 
   return {
     locale,

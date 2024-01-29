@@ -2,17 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from "@ant-design/icons";
 import { t } from "i18next";
 import { useStore } from "@/store/index";
+import { initItems } from "@/router/menuRoute";
 function SideMenu() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,24 +35,29 @@ function SideMenu() {
       icon,
     };
   };
+  const sideMenuItems = initItems((obj) => {
+    obj.label = t(obj.label);
+  });
+  // const [items] = useState(sideMenuItems);
 
-  const items = [
-    getItem(t("首页"), "home", <AppstoreOutlined />),
-    getItem(t("系统管理"), "systemManage", <ContainerOutlined />, [
-      getItem(t("用户管理"), "userManage", <DesktopOutlined />),
-      getItem(t("角色管理"), "roleManage", <MailOutlined />),
-      getItem(t("菜单管理"), "menuManage", <MenuFoldOutlined />),
-    ]),
-    getItem(t("技术研究"), "technicalStudy", <MenuUnfoldOutlined />, [
-      getItem(t("聚合蜂窝图"), "aggregatedHex", <PieChartOutlined />),
-    ]),
-    getItem(t("流程图"), "workflow", <MenuUnfoldOutlined />, [
-      getItem(t("antvX6"), "AntVX6", <PieChartOutlined />),
-    ]),
-    getItem(t("three"), "three", <MenuUnfoldOutlined />, [
-      getItem(t("001鸟"), "001", <PieChartOutlined />),
-    ]),
-  ];
+  // const sideMenuItems = [
+  //   getItem(title, "home", <AppstoreOutlined />),
+  //   getItem(t("系统管理"), "systemManage", <ContainerOutlined />, [
+  //     getItem(t("用户管理"), "userManage", <DesktopOutlined />),
+  //     getItem(t("角色管理"), "roleManage", <MailOutlined />),
+  //     getItem(t("菜单管理"), "menuManage", <MenuFoldOutlined />),
+  //   ]),
+  //   getItem(t("技术研究"), "technicalStudy", <MenuUnfoldOutlined />, [
+  //     getItem(t("聚合蜂窝图"), "aggregatedHex", <PieChartOutlined />),
+  //   ]),
+  //   getItem(t("流程图"), "workflow", <MenuUnfoldOutlined />, [
+  //     getItem(t("antvX6"), "AntVX6", <PieChartOutlined />),
+  //   ]),
+  //   getItem(t("three"), "three", <MenuUnfoldOutlined />, [
+  //     getItem(t("001基础"), "001", <PieChartOutlined />),
+  //   ]),
+  // ];
+  // setItems(sideMenuItems);
   const selectMenu = ({ keyPath }: { keyPath: string[] }) => {
     const pathUrl = "/" + keyPath.reverse().join("/");
     // console.log(path);
@@ -73,7 +70,7 @@ function SideMenu() {
       selectedKeys={defaultSelectedKeys}
       mode="inline"
       theme="dark"
-      items={items}
+      items={sideMenuItems}
       inlineCollapsed={layout.menuJustIcon}
       onSelect={(e) => selectMenu(e)}
     ></Menu>

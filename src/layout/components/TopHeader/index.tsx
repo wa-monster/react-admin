@@ -15,7 +15,7 @@ import {
   FontColorsOutlined,
   ItalicOutlined,
 } from "@ant-design/icons";
-import { langMenu } from "@/router/index";
+import { langMenu } from "@/router/menuRoute";
 import { useAntdI18n } from "@/i18n/antd";
 import type { TabsProps } from "antd";
 import UserJPG from "@/assets/img/user.jpg";

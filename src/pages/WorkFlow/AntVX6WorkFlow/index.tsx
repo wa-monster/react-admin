@@ -6,6 +6,7 @@ import { Dropdown } from "antd";
 import { Snapline } from "@antv/x6-plugin-snapline";
 import PanelItem from "./components/PanelItem";
 import Styles from "./index.module.less";
+
 const CustomComponent = ({ node }: { node: any }) => {
   const label = node.prop("label");
   return (
