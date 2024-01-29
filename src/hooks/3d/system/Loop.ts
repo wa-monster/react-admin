@@ -26,7 +26,7 @@ export class Loop {
   }
   tick() {
     const delta = clock.getDelta();
-    for (let cube of this.updateAbles) {
+    for (const cube of this.updateAbles) {
       cube.tick(delta);
     }
   }
