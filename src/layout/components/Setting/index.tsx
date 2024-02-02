@@ -29,8 +29,6 @@ const Setting = () => {
     layout.setMenuDisabled(checked);
   };
   const ChangeThemeColor = (color: Color, hex: string) => {
-    console.log(hex);
-
     themeColor.setColorPrimary(hex as unknown as string);
     setColor(color);
   };

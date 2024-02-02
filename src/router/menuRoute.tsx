@@ -18,6 +18,8 @@ const RoleManage = lazy(() => import("@/pages/System/RoleManage"));
 const MenuManage = lazy(() => import("@/pages/System/MenuManage"));
 const ThreeBase = lazy(() => import("@/pages/Three/001"));
 const ThreeBirds = lazy(() => import("@/pages/Three/002"));
+const ThreeCamera = lazy(() => import("@/pages/Three/003"));
+const ThreeHouse = lazy(() => import("@/pages/Three/004"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -137,6 +139,22 @@ export const menuRouteArr = [
         element: <FactorySuspense ele={ThreeBirds} />,
         handle: {
           name: "002鸟",
+          icon: <PieChartOutlined />,
+        },
+      },
+      {
+        path: "003",
+        element: <FactorySuspense ele={ThreeCamera} />,
+        handle: {
+          name: "003相机",
+          icon: <PieChartOutlined />,
+        },
+      },
+      {
+        path: "004",
+        element: <FactorySuspense ele={ThreeHouse} />,
+        handle: {
+          name: "003房子",
           icon: <PieChartOutlined />,
         },
       },

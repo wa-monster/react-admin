@@ -10,6 +10,8 @@ export const setModel = (data: GLTF) => {
   // 为动态模型加动画剪辑
   const action = mixer.clipAction(clip);
   (model as any).tick = (delta: number) => {
+    console.log("111111111111", delta);
+
     mixer.update(delta);
   };
   action.play();

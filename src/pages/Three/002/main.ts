@@ -39,6 +39,6 @@ export const useMain = async (id: string) => {
     renderer.render(scene, camera);
     loop.start();
   } else {
-    throw new Error("未获取到canvas元素");
+    throw new Error("未获取到元素");
   }
 };
