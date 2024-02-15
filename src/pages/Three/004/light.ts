@@ -6,10 +6,10 @@ import {
 } from "three";
 
 export const createLight2 = () => {
-  const hemisphereLight = new HemisphereLight("white", "blue", 15);
+  const hemisphereLight = new HemisphereLight("white", "blue", 5);
   // const pointLight = new PointLight("white", 15);
   // const pointLight2 = new PointLight("white", 15);
-  // const ambientLight = new AmbientLight("0x274d3d", 50);
+  const ambientLight = new AmbientLight("0x274d3d", 5);
   const directionalLight1 = new DirectionalLight("0xfff", 10);
   const directionalLight2 = new DirectionalLight("0xfff", 1);
   const directionalLight3 = new DirectionalLight("0xfff", 1);
@@ -28,7 +28,7 @@ export const createLight2 = () => {
     hemisphereLight,
     // pointLight,
     // pointLight2,
-    // ambientLight,
+    ambientLight,
     directionalLight1,
     directionalLight2,
     directionalLight3,

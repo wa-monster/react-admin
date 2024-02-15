@@ -1,7 +1,7 @@
 import { Loop } from "@/hooks/3d/system/Loop";
 import { Resize } from "@/hooks/3d/system/Resizer";
 import { createScene } from "@/hooks/3d/components/scene";
-import { creatRenderer } from "@/hooks/3d/components/renderer";
+import { createRendererer } from "@/hooks/3d/components/renderer";
 import { createCamera } from "@/hooks/3d/components/camera";
 
 import { loadGLTF } from "./cameraCube/cube";
@@ -12,7 +12,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 export const initMain = async (id: string) => {
   const container = document.querySelector(id);
   const scene = createScene();
-  const renderer = creatRenderer();
+  const renderer = createRendererer();
   const camera = createCamera();
   const cube = createCube();
   const cameraCube = await loadGLTF();

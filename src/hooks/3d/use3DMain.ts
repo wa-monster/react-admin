@@ -1,4 +1,4 @@
-import { creatRenderer } from "./components/renderer";
+import { createRendererer } from "./components/renderer";
 import { createScene } from "./components/scene";
 import { createCamera } from "./components/camera";
 import { createLight } from "./components/light";
@@ -17,7 +17,7 @@ export const use3DMain = (id: string) => {
 
   const container = document.querySelector(id);
   if (container) {
-    const renderer = creatRenderer();
+    const renderer = createRendererer();
     container.append(renderer.domElement);
     const resize = new Resize(camera, renderer, container);
     resize.onResize = () => {

@@ -225,7 +225,7 @@ function Home() {
         <div
           className="grid justify-between justify-items-center"
           style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
           }}
         >
           {QuickCardList.map((v, i) => {

@@ -1,4 +1,4 @@
-import { creatRenderer } from "@/hooks/3d/components/renderer";
+import { createRendererer } from "@/hooks/3d/components/renderer";
 import { createScene } from "@/hooks/3d/components/scene";
 import { createCamera } from "@/hooks/3d/components/camera";
 import { createLight } from "@/hooks/3d/components/light";
@@ -16,7 +16,7 @@ export const useMain = async (id: string) => {
 
   const container = document.querySelector(id);
   if (container) {
-    const renderer = creatRenderer();
+    const renderer = createRendererer();
     container.append(renderer.domElement);
     //更新器
     const loop = new Loop(camera, scene, renderer);

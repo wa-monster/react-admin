@@ -1,7 +1,7 @@
 import { Loop } from "@/hooks/3d/system/Loop";
 import { Resize } from "@/hooks/3d/system/Resizer";
 import { createScene } from "@/hooks/3d/components/scene";
-import { creatRenderer } from "@/hooks/3d/components/renderer";
+import { createRendererer } from "@/hooks/3d/components/renderer";
 import { createCamera } from "@/hooks/3d/components/camera";
 
 import { loadGLTF } from "./loaderGLB/cube";
@@ -12,12 +12,13 @@ import { degToRad } from "three/src/math/MathUtils";
 export const initMain = async (id: string) => {
   const container = document.querySelector(id);
   const scene = createScene();
-  const renderer = creatRenderer();
+  const renderer = createRendererer();
   const camera = createCamera();
   const houseCube = await loadGLTF();
   houseCube.scale.set(0.1, 0.1, 0.1);
   const {
     hemisphereLight,
+    ambientLight,
     directionalLight1,
     directionalLight2,
     directionalLight3,
@@ -27,13 +28,14 @@ export const initMain = async (id: string) => {
   } = createLight2();
   scene.add(
     houseCube,
-    hemisphereLight,
-    directionalLight1,
-    directionalLight2,
+    // hemisphereLight,
+    ambientLight
+    // directionalLight1,
+    // directionalLight2
     // directionalLight3,
-    directionalLight4,
-    directionalLight5,
-    directionalLight6
+    // directionalLight4,
+    // directionalLight5,
+    // directionalLight6
   );
   scene.background = new Color(0xbfe3dd);
   camera.position.set(50, 50, 50);
