@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { initMain } from "./main";
 function ThreeCamera() {
+  let obj: Record<string, any> = {};
   useEffect(() => {
-    initMain("#canvas002");
+    const asyncMain = async () => {
+      obj = await initMain("#canvas002");
+    };
+    asyncMain();
+    return () => {
+      obj?.loop.stop();
+    };
   }, []);
-  return <div className="bg-white h-full p-2 " id="canvas002"></div>;
+  return <div className="bg-white h-full" id="canvas002"></div>;
 }
 export default ThreeCamera;

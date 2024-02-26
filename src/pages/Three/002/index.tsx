@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { useMain } from "./main";
 const ThreeBirds = () => {
+  let obj: Record<string, any> = {};
   useEffect(() => {
-    useMain("#canvas001");
+    const asyncMain = async () => {
+      obj = await useMain("#canvas001");
+    };
+    asyncMain();
+    return () => {
+      obj?.loop.stop();
+    };
   }, []);
 
-  return <div className="bg-white h-full p-2 " id="canvas001"></div>;
+  return <div className="bg-white h-full" id="canvas001"></div>;
 };
 
 export default ThreeBirds;

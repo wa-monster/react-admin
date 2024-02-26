@@ -13,9 +13,10 @@ const setModel = (data: GLTF) => {
 
   const action = mixer.clipAction(clip);
   (model as Object3D<Event> & { tick: (a: any) => void }).tick = (delta) => {
+    console.log("data", data);
     mixer.update(delta);
   };
-  console.log("data", data);
+
   action.play();
   return model;
 };

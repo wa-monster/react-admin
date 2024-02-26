@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { initMain } from "./main";
-const ThreePerson = () => {
+const WalkPerson = () => {
   let obj: Record<string, any> = {};
   useEffect(() => {
     const asyncMain = async () => {
@@ -8,7 +8,8 @@ const ThreePerson = () => {
     };
     asyncMain();
     return () => {};
-  }, []);
+  });
   return <div className="bg-white h-full" id="container"></div>;
 };
-export default ThreePerson;
+
+export default WalkPerson;

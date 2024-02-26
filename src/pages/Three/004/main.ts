@@ -56,6 +56,10 @@ export const initMain = async (id: string) => {
     container.append(renderer.domElement);
 
     loop.start();
+    return {
+      loop,
+      renderer,
+    };
     // renderer.render(scene, camera);
   } else {
     throw Error("找不到元素");

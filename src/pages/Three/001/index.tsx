@@ -5,7 +5,7 @@ const ThreeBirds = () => {
     use3DMain("#canvas001");
   }, []);
 
-  return <div className="bg-white h-full p-2 " id="canvas001"></div>;
+  return <div className="bg-white h-full" id="canvas001"></div>;
 };
 
 export default ThreeBirds;

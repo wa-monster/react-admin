@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { createRendererer } from "@/hooks/3d/components/renderer";
 import { createScene } from "@/hooks/3d/components/scene";
 import { createCamera } from "@/hooks/3d/components/camera";
@@ -38,6 +39,10 @@ export const useMain = async (id: string) => {
 
     renderer.render(scene, camera);
     loop.start();
+    return {
+      loop,
+      renderer,
+    };
   } else {
     throw new Error("未获取到元素");
   }

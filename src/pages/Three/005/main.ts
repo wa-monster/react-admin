@@ -34,9 +34,10 @@ export const initMain = async (id: string) => {
       renderer.render(scene, camera);
     };
     container.append(renderer.domElement);
-    setTimeout(() => {
-      renderer.render(scene, camera);
-    }, 10);
+    renderer.render(scene, camera);
+    return {
+      renderer,
+    };
   } else {
     throw Error("找不到元素");
   }

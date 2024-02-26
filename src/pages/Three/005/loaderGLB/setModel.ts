@@ -1,13 +1,5 @@
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import {
-  TextureLoader,
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-  MeshBasicMaterial,
-  Color,
-  Texture,
-  sRGBEncoding,
-} from "three";
+import { TextureLoader, MeshStandardMaterial, Texture } from "three";
 const textureLoader = new TextureLoader();
 const baseUrl = process.env.PUBLIC_URL;
 const setModel = (data: GLTF) => {
