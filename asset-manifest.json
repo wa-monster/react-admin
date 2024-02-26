@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yang-admin/static/css/main.b2da3821.css",
-    "main.js": "/yang-admin/static/js/main.812230ea.js",
+    "main.js": "/yang-admin/static/js/main.c525979f.js",
     "static/css/751.c086f9ca.chunk.css": "/yang-admin/static/css/751.c086f9ca.chunk.css",
     "static/js/751.61f57658.chunk.js": "/yang-admin/static/js/751.61f57658.chunk.js",
     "static/js/627.019f333f.chunk.js": "/yang-admin/static/js/627.019f333f.chunk.js",
@@ -14,17 +14,18 @@
     "static/js/599.440f1461.chunk.js": "/yang-admin/static/js/599.440f1461.chunk.js",
     "static/css/175.6137db74.chunk.css": "/yang-admin/static/css/175.6137db74.chunk.css",
     "static/js/175.daa3e37b.chunk.js": "/yang-admin/static/js/175.daa3e37b.chunk.js",
-    "static/js/532.39bdfcac.chunk.js": "/yang-admin/static/js/532.39bdfcac.chunk.js",
-    "static/js/695.4e6b358b.chunk.js": "/yang-admin/static/js/695.4e6b358b.chunk.js",
-    "static/js/626.6739134f.chunk.js": "/yang-admin/static/js/626.6739134f.chunk.js",
-    "static/js/113.a2f7f3b5.chunk.js": "/yang-admin/static/js/113.a2f7f3b5.chunk.js",
-    "static/js/810.539520ed.chunk.js": "/yang-admin/static/js/810.539520ed.chunk.js",
+    "static/js/532.9983d0dd.chunk.js": "/yang-admin/static/js/532.9983d0dd.chunk.js",
+    "static/js/695.30658f16.chunk.js": "/yang-admin/static/js/695.30658f16.chunk.js",
+    "static/js/626.6bc3239c.chunk.js": "/yang-admin/static/js/626.6bc3239c.chunk.js",
+    "static/js/113.0bad425d.chunk.js": "/yang-admin/static/js/113.0bad425d.chunk.js",
+    "static/js/810.bc464730.chunk.js": "/yang-admin/static/js/810.bc464730.chunk.js",
+    "static/js/82.e00e04a8.chunk.js": "/yang-admin/static/js/82.e00e04a8.chunk.js",
     "static/css/108.87aa1b65.chunk.css": "/yang-admin/static/css/108.87aa1b65.chunk.css",
     "static/js/108.f438fbd3.chunk.js": "/yang-admin/static/js/108.f438fbd3.chunk.js",
     "static/js/668.dd650bff.chunk.js": "/yang-admin/static/js/668.dd650bff.chunk.js",
-    "static/js/828.5d133885.chunk.js": "/yang-admin/static/js/828.5d133885.chunk.js",
-    "static/js/542.a25f5fcf.chunk.js": "/yang-admin/static/js/542.a25f5fcf.chunk.js",
+    "static/js/828.15b9fbaa.chunk.js": "/yang-admin/static/js/828.15b9fbaa.chunk.js",
     "static/js/871.81d33ec3.chunk.js": "/yang-admin/static/js/871.81d33ec3.chunk.js",
+    "static/js/542.a25f5fcf.chunk.js": "/yang-admin/static/js/542.a25f5fcf.chunk.js",
     "static/js/462.6cde46d8.chunk.js": "/yang-admin/static/js/462.6cde46d8.chunk.js",
     "static/js/529.e793c573.chunk.js": "/yang-admin/static/js/529.e793c573.chunk.js",
     "static/js/634.1ece862b.chunk.js": "/yang-admin/static/js/634.1ece862b.chunk.js",
@@ -36,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.b2da3821.css",
-    "static/js/main.812230ea.js"
+    "static/js/main.c525979f.js"
   ]
 }
