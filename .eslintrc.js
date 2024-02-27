@@ -39,6 +39,7 @@ module.exports = {
     "no-debugger": "warn",
     "prefer-const": "warn",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
   settings: {
     react: {

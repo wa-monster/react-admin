@@ -5,15 +5,31 @@ import {
   AnimationMixer,
   Object3D,
 } from "three";
-export const setModel = (data: GLTF, data2: GLTF, data3: GLTF) => {
+// import * as THREE from 'three';
+// @ts-expect-error: ts类型错误，不得不取消类型验证
+import { clone } from "three/examples/jsm/utils/SkeletonUtils";
+export const setModel = (data: GLTF) => {
+  console.log("data.scene", data.scene);
   const model1 = data.scene.children[0];
-  const model2 = data2.scene.children[0];
-  const model3 = data3.scene.children[0];
-  console.log(" data.animations", data);
+  const model2 = clone(data.scene.children[0]);
+  const model3 = clone(data.scene.children[0]);
+  // model3.scale.set(0.01, 0.01, 0.01);
+  console.log("model2", model2);
+  console.log("model3", model3);
+
+  data.scene.traverse((obj) => {
+    obj.castShadow = true;
+  });
+  model2.traverse((obj: any) => {
+    obj.castShadow = true;
+  });
+  model3.traverse((obj: any) => {
+    obj.castShadow = true;
+  });
 
   const clip1 = data.animations[0];
-  const clip2 = data2.animations[1];
-  const clip3 = data3.animations[3];
+  const clip2 = data.animations[1];
+  const clip3 = data.animations[3];
 
   const mixer1 = new AnimationMixer(model1);
   const mixer2 = new AnimationMixer(model2);

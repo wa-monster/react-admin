@@ -9,20 +9,11 @@ export const createCube = async () => {
   const personData1 = await gltfLoader.loadAsync(
     baseUrl + "/models/soldier/Soldier.glb"
   );
-  const personData2 = await gltfLoader.loadAsync(
-    baseUrl + "/models/soldier/Soldier.glb"
-  );
-  const personData3 = await gltfLoader.loadAsync(
-    baseUrl + "/models/soldier/Soldier.glb"
-  );
-  const { cube1, cube2, cube3 } = setModel(
-    personData1,
-    personData2,
-    personData3
-  );
-  cube1.position.x = -2;
+
+  const { cube1, cube2, cube3 } = setModel(personData1);
+  cube1.position.x = 3;
   cube2.position.x = 0;
-  cube3.position.x = 2;
+  cube3.position.x = 1;
   return {
     cube1,
     cube2,
