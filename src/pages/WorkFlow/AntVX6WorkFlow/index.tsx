@@ -7,6 +7,7 @@ import { Snapline } from "@antv/x6-plugin-snapline";
 import PanelItem from "./components/PanelItem";
 import Styles from "./index.module.less";
 
+// 自定义的元素节点
 const CustomComponent = ({ node }: { node: any }) => {
   const label = node.prop("label");
   return (
@@ -91,11 +92,12 @@ const data = {
     },
   ],
 };
+let graph: Graph | undefined;
 const AntvX6WorkFlow = () => {
   useEffect(() => {
     const container = document.getElementById("container");
     if (container) {
-      const graph = new Graph({
+      graph = new Graph({
         container: container,
         autoResize: true,
         width: 800,
@@ -126,6 +128,32 @@ const AntvX6WorkFlow = () => {
       graph.centerContent();
     }
   }, []);
+
+  const createRectNode = (e: any) => {
+    console.log("111111");
+
+    data.nodes.push({
+      id: "node1",
+      shape: "custom-react-node",
+      x: 250,
+      y: 250,
+      width: 100,
+      height: 40,
+      label: "hello222",
+      attrs: {
+        // body 是选择器名称，选中的是 rect 元素
+        body: {
+          stroke: "#8f8f8f",
+          strokeWidth: 1,
+          fill: "#fff",
+          rx: 6,
+          ry: 6,
+        },
+      },
+    });
+    graph?.fromJSON(data); // 渲染元素
+  };
+
   return (
     <div
       style={{ width: "100%", height: "100%" }}
@@ -137,7 +165,15 @@ const AntvX6WorkFlow = () => {
       >
         <div className="h-8 flex items-center">节点</div>
         <div className="h-12 flex gap-2">
-          <PanelItem></PanelItem>
+          <PanelItem
+            onClick={(e) => {
+              console.log("createRectNode", createRectNode);
+
+              createRectNode(e);
+            }}
+          >
+            <div className={Styles.rectPanelItem}>节点</div>
+          </PanelItem>
           <PanelItem></PanelItem>
           <PanelItem></PanelItem>
           <PanelItem></PanelItem>

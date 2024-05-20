@@ -11,10 +11,14 @@ function SideMenu() {
   const pathnameArr = location.pathname.split("/").filter((v) => v !== "");
 
   const [defaultSelectedKeys, setSelectKeys] = useState([""]);
+  const [openKeys, setOpenKeys] = useState<string[] | undefined>(undefined);
   useEffect(() => {
     const pathnameArr = location.pathname.split("/").filter((v) => v !== "");
     // const defaultSelectedKeys = ;
     setSelectKeys([pathnameArr[pathnameArr.length - 1]]);
+    if (pathnameArr.length > 1) {
+      setOpenKeys([pathnameArr[0]]);
+    }
   }, [location]);
   const defaultOpenKeys = pathnameArr.length > 1 ? [pathnameArr[0]] : undefined;
 
@@ -58,11 +62,17 @@ function SideMenu() {
   //   ]),
   // ];
   // setItems(sideMenuItems);
+
   const selectMenu = ({ keyPath }: { keyPath: string[] }) => {
+    console.log("keyPath.reverse()[0]============", keyPath);
     const pathUrl = "/" + keyPath.reverse().join("/");
-    // console.log(path);
+    console.log("openKeys", openKeys);
 
     navigate(pathUrl);
+  };
+  const openSubMenuChange = (keys: string[]) => {
+    console.log("e", keys);
+    setOpenKeys(keys);
   };
   return (
     <Menu
@@ -70,9 +80,11 @@ function SideMenu() {
       selectedKeys={defaultSelectedKeys}
       mode="inline"
       theme="dark"
+      openKeys={openKeys}
       items={sideMenuItems}
       inlineCollapsed={layout.menuJustIcon}
       onSelect={(e) => selectMenu(e)}
+      onOpenChange={(keys) => openSubMenuChange(keys)}
     ></Menu>
   );
 }
