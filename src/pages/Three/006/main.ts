@@ -72,6 +72,7 @@ export const initMain = async (id: string) => {
     loop.start();
     return {
       renderer,
+      loop,
     };
   } else {
     throw new Error("未查询到元素");

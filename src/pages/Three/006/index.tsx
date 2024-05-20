@@ -16,7 +16,9 @@ const WalkPerson = () => {
       obj = await initMain("#container");
     };
     asyncMain();
-    return () => {};
+    return () => {
+      obj?.loop.stop();
+    };
   });
   return <div className="bg-white h-full" id="container"></div>;
 };
