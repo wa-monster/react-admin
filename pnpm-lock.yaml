@@ -14,6 +14,9 @@ dependencies:
   '@antv/x6':
     specifier: ^2.16.1
     version: 2.18.1
+  '@antv/x6-plugin-dnd':
+    specifier: ^2.1.1
+    version: 2.1.1(@antv/x6@2.18.1)
   '@antv/x6-plugin-snapline':
     specifier: ^2.1.7
     version: 2.1.7(@antv/x6@2.18.1)
@@ -278,6 +281,14 @@ packages:
 
   /@antv/x6-geometry@2.0.5:
     resolution: {integrity: sha512-MId6riEQkxphBpVeTcL4ZNXL4lScyvDEPLyIafvWMcWNTGK0jgkK7N20XSzqt8ltJb0mGUso5s56mrk8ysHu2A==}
+    dev: false
+
+  /@antv/x6-plugin-dnd@2.1.1(@antv/x6@2.18.1):
+    resolution: {integrity: sha512-v0szzik1RkadPDn4Qi5mOSaB2AeI78D40/YuCYbPVzplG+HydGsHwO3MLTgJPQ+R5n0eM0W5F850p1VfTOHR7g==}
+    peerDependencies:
+      '@antv/x6': ^2.x
+    dependencies:
+      '@antv/x6': 2.18.1
     dev: false
 
   /@antv/x6-plugin-snapline@2.1.7(@antv/x6@2.18.1):

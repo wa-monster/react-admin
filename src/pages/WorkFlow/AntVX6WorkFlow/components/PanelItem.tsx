@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 function PanelItem(props: {
   children?: any;
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onMouseDown?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }) {
   return (
     <div
-      onClick={(e) => {
-        props.onClick ? props.onClick(e) : null;
+      onMouseDown={(e) => {
+        props.onMouseDown ? props.onMouseDown(e) : null;
       }}
     >
-      {props.children ? props.children : "222"}
+      {props.children ? props.children : ""}
     </div>
   );
 }

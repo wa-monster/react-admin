@@ -15,6 +15,7 @@
     "@amap/amap-jsapi-types": "^0.0.13",
     "@ant-design/icons": "^5.2.6",
     "@antv/x6": "^2.16.1",
+    "@antv/x6-plugin-dnd": "^2.1.1",
     "@antv/x6-plugin-snapline": "^2.1.7",
     "@antv/x6-react-shape": "^2.2.2",
     "@testing-library/react": "^13.4.0",
