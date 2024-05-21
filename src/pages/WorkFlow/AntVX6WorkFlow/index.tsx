@@ -15,10 +15,6 @@ const CustomComponent = ({ node }: { node: any }) => {
       menu={{
         items: [
           {
-            key: "copy",
-            label: "复制",
-          },
-          {
             key: "delete",
             label: "删除",
           },
@@ -188,8 +184,10 @@ const AntvX6WorkFlow = () => {
           >
             <div className={Styles.rectPanelItem}>矩形</div>
           </PanelItem>
+          <PanelItem>
+            <div className={Styles.circlePanelItem}>圆形</div>
+          </PanelItem>
           {/* <PanelItem></PanelItem>
-          <PanelItem></PanelItem>
           <PanelItem></PanelItem>
           <PanelItem></PanelItem> */}
         </div>
