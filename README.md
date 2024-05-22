@@ -38,12 +38,11 @@ pnpm run build
 - 若依后台管理框架 http://vue.ruoyi.vip/index
 - ant-design-pro https://preview.pro.ant.design/dashboard/analysis/
 
-10-23
-完成 logo 和菜单
-10-31
-把个人弄出来
-
-11-6
-菜单默认选择有问题，记得改
-
-12-12 流程图规划
+### 功能
+1. 首页概览
+2. 菜单管理
+3. 角色管理
+4. 用户管理
+5. 地图聚合蜂窝图
+6. 三维模型
+7. 流程图
