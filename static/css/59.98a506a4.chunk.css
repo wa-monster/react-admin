@@ -1,0 +1,1 @@
+.gallery-box{display:grid;grid-template-columns:repeat(3,1fr);overflow-y:auto}.gallery-box,.gallery-item{height:100%;width:100%}
