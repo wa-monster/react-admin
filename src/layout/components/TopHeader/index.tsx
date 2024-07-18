@@ -153,7 +153,7 @@ const TopHeader = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/wa-monster/yang-admin"
+          href="https://github.com/wa-monster/rea-admin"
         >
           <GithubOutlined /> GitHub
         </a>
