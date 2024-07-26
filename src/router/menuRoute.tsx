@@ -25,6 +25,10 @@ const WalkPerson = lazy(() => import("@/pages/Three/006"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
+const AntVX6Example = lazy(
+  () => import("@/pages/WorkFlow/AntVX6Example/index")
+);
+
 const Gallery = lazy(() => import("@/pages/Beauty/Gallery/index"));
 // Suspense工厂函数
 export function FactorySuspense({
@@ -116,6 +120,14 @@ export const menuRouteArr = [
         element: <FactorySuspense ele={AntVX6WorkFlow} />,
         handle: {
           name: "AntVX6版本",
+          icon: <PieChartOutlined />,
+        },
+      },
+      {
+        path: "AntVX6Example",
+        element: <FactorySuspense ele={AntVX6Example} />,
+        handle: {
+          name: "AntVX6例子",
           icon: <PieChartOutlined />,
         },
       },

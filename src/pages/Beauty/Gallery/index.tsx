@@ -31,7 +31,9 @@ function Gallery() {
   }, []);
   return (
     <div className="gallery-box">
-      <GalleryList galleryArr={galleryArr}></GalleryList>
+      <div className="gallery-content">
+        <GalleryList galleryArr={galleryArr}></GalleryList>
+      </div>
     </div>
   );
 }

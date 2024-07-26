@@ -8,9 +8,10 @@ import { createCube } from "@/hooks/3d/components/cube";
 import { createLight } from "./light";
 import { loadPerson } from "./loaderGLB/cube";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Color, MeshStandardMaterial } from "three";
+import { Color, MeshStandardMaterial, sRGBEncoding } from "three";
 export const initMain = async (id: string) => {
   const renderer = createRendererer();
+  renderer.outputEncoding = sRGBEncoding;
   const scene = createScene();
   scene.background = new Color(0x000);
   const camera = createCamera();

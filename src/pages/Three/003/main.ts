@@ -7,12 +7,13 @@ import { createCamera } from "@/hooks/3d/components/camera";
 import { loadGLTF } from "./cameraCube/cube";
 import { createCube } from "./cube";
 import { createLight2 } from "./light";
-import { Color } from "three";
+import { Color, sRGBEncoding } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 export const initMain = async (id: string) => {
   const container = document.querySelector(id);
   const scene = createScene();
   const renderer = createRendererer();
+  renderer.outputEncoding = sRGBEncoding;
   const camera = createCamera();
   const cube = createCube();
   const cameraCube = await loadGLTF();

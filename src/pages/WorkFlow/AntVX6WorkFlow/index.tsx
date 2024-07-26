@@ -1,54 +1,12 @@
 import React from "react";
 import { Graph } from "@antv/x6";
 import { useEffect } from "react";
-import { register } from "@antv/x6-react-shape";
-import { Dropdown } from "antd";
+
 import { Snapline } from "@antv/x6-plugin-snapline";
 import PanelItem from "./components/PanelItem";
 import Styles from "./index.module.less";
 import { Dnd } from "@antv/x6-plugin-dnd";
-// 自定义的元素节点
-const CustomComponent = ({ node }: { node: any }) => {
-  const label = node.prop("label");
-  return (
-    <Dropdown
-      menu={{
-        items: [
-          {
-            key: "delete",
-            label: "删除",
-          },
-        ],
-      }}
-      trigger={["contextMenu"]}
-    >
-      <div className={Styles.customReactNode}>{label}</div>
-    </Dropdown>
-  );
-};
-// 注册自定义节点
-register({
-  shape: "custom-react-node",
-  width: 100,
-  height: 40,
-  component: CustomComponent,
-});
-// 所有节点图形
-const antvNode = {
-  rect: {
-    shape: "custom-react-node",
-    width: 100,
-    height: 40,
-    label: "矩形",
-    attrs: {
-      // body 是选择器名称，选中的是 rect 元素
-      body: {
-        stroke: "#8f8f8f",
-        strokeWidth: 1,
-      },
-    },
-  },
-};
+import { antvNode } from "./components/CustomComponent/index";
 
 const data = {
   nodes: [
@@ -184,7 +142,11 @@ const AntvX6WorkFlow = () => {
           >
             <div className={Styles.rectPanelItem}>矩形</div>
           </PanelItem>
-          <PanelItem>
+          <PanelItem
+            onMouseDown={(e) => {
+              createRectNode(e, "circle");
+            }}
+          >
             <div className={Styles.circlePanelItem}>圆形</div>
           </PanelItem>
           {/* <PanelItem></PanelItem>
