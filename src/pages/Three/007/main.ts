@@ -9,28 +9,47 @@ const initMain = (id: string) => {
   const camera = createCamera();
   camera.position.set(0, 0, 10);
   const renderer = createRendererer();
-
+  renderer.outputEncoding = three.sRGBEncoding;
   const context = process.env.PUBLIC_URL;
   const textureLoader = new three.TextureLoader();
-  const earthLoader = textureLoader.load(context + "/image/3d/earth.jpg");
-  const starBgLoader = textureLoader.load(context + "/image/3d/star-bg.jpg");
-  scene.background = starBgLoader;
 
-  // const geometry = new three.BoxBufferGeometry(50, 12, 12);
+  // 地球
+  const earthLoader = textureLoader.load(context + "/image/3d/earth/earth.jpg");
   const geometry = new three.SphereGeometry(2, 20, 20);
-  const material = new three.MeshBasicMaterial({
-    // color: 0xff0000,
+  const material = new three.MeshPhongMaterial({
     map: earthLoader,
+    side: three.DoubleSide,
   });
+  const earthMesh = new three.Mesh(geometry, material);
+  earthMesh.position.set(0, 0, 0);
+  scene.add(earthMesh);
 
-  const mesh = new three.Mesh(geometry, material);
-  mesh.position.set(0, 0, 0);
-  scene.add(mesh);
+  // 宇宙
+  const starBgLoader = textureLoader.load(context + "/image/3d/earth/star.jpg");
+  const geometryUniverse = new three.SphereGeometry(100, 20, 20);
+  const materialUniverse = new three.MeshPhongMaterial({
+    map: starBgLoader,
+    side: three.DoubleSide,
+  });
+  const universeMesh = new three.Mesh(geometryUniverse, materialUniverse);
+  universeMesh.position.set(0, 0, 0);
+  scene.add(universeMesh);
 
-  // const light = new three.DirectionalLight(10);
-
-  // light.position.set(5, 5, 5);
-  // scene.add(light);
+  // 太远
+  const sunBgLoader = textureLoader.load(context + "/image/3d/earth/sun.jpg");
+  const geometrySun = new three.CircleGeometry(1, 20);
+  const materialSun = new three.MeshBasicMaterial({
+    map: sunBgLoader,
+    side: three.DoubleSide,
+  });
+  const sunMesh = new three.Mesh(geometrySun, materialSun);
+  sunMesh.rotation.y = three.MathUtils.degToRad(90);
+  sunMesh.position.set(15, 5, 5);
+  scene.add(sunMesh);
+  // 光
+  const light = new three.DirectionalLight(0xffffff, 1);
+  light.position.set(15, 5, 5);
+  scene.add(light);
   const container = document.querySelector(id);
   // const axesHelper = new three.AxesHelper(50);
   // scene.add(axesHelper);
