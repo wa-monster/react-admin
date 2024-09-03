@@ -22,6 +22,7 @@ const ThreeCamera = lazy(() => import("@/pages/Three/003"));
 const ThreeHouse = lazy(() => import("@/pages/Three/004"));
 const ThreePerson = lazy(() => import("@/pages/Three/005"));
 const WalkPerson = lazy(() => import("@/pages/Three/006"));
+const EarthGl = lazy(() => import("@/pages/Three/007"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -186,6 +187,14 @@ export const menuRouteArr = [
         element: <FactorySuspense ele={WalkPerson} />,
         handle: {
           name: "006行走的人",
+          icon: <PieChartOutlined />,
+        },
+      },
+			{
+        path: "007",
+        element: <FactorySuspense ele={EarthGl} />,
+        handle: {
+          name: "007地球",
           icon: <PieChartOutlined />,
         },
       },
