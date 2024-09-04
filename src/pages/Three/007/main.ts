@@ -15,11 +15,53 @@ const initMain = (id: string) => {
 
   // 地球
   const earthLoader = textureLoader.load(context + "/image/3d/earth/earth.jpg");
-  const geometry = new three.SphereGeometry(2, 20, 20);
+  const nightEarthLoader = textureLoader.load(
+    context + "/image/3d/earth/night_earth.jpg"
+  );
+  const geometry = new three.SphereGeometry(2, 30, 30);
   const material = new three.MeshPhongMaterial({
     map: earthLoader,
     side: three.DoubleSide,
   });
+  // // 创建 Shader 材质
+  // const material = new three.ShaderMaterial({
+  //   uniforms: {
+  //     dayTexture: { value: earthLoader },
+  //     nightTexture: { value: nightEarthLoader },
+  //     lightDirection: { value: new three.Vector3(1, 0, 0) },
+  //   },
+  //   vertexShader: `
+  // 		varying vec3 vNormal;
+  // 		varying vec3 vPosition;
+  // 		void main() {
+  // 				vNormal = normalize(normalMatrix * normal);
+  // 				vPosition = position;
+  // 				gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  // 		}
+  // `,
+  //   fragmentShader: `
+  // 		uniform sampler2D dayTexture;
+  // 		uniform sampler2D nightTexture;
+  // 		uniform vec3 lightDirection;
+  // 		varying vec3 vNormal;
+  // 		varying vec3 vPosition;
+
+  // 		void main() {
+  // 				// 计算光照方向和法线的点积
+  // 				float intensity = dot(normalize(vNormal), normalize(lightDirection));
+
+  // 				// 依据光照强度选择白天或夜晚的纹理
+  // 				vec4 dayColor = texture2D(dayTexture, vPosition.xy);
+  // 				vec4 nightColor = texture2D(nightTexture, vPosition.xy);
+
+  // 				// 混合白天和夜晚的颜色
+  // 				vec4 color = mix(nightColor, dayColor, clamp(intensity, 0.0, 1.0));
+
+  // 				gl_FragColor = color;
+  // 		}
+  // `,
+  // });
+
   const earthMesh = new three.Mesh(geometry, material);
   earthMesh.position.set(0, 0, 0);
   scene.add(earthMesh);
@@ -35,7 +77,7 @@ const initMain = (id: string) => {
   universeMesh.position.set(0, 0, 0);
   scene.add(universeMesh);
 
-  // 太远
+  // 太阳
   const sunBgLoader = textureLoader.load(context + "/image/3d/earth/sun.jpg");
   const geometrySun = new three.CircleGeometry(1, 20);
   const materialSun = new three.MeshBasicMaterial({
@@ -48,7 +90,7 @@ const initMain = (id: string) => {
   scene.add(sunMesh);
   // 光
   const light = new three.DirectionalLight(0xffffff, 1);
-  light.position.set(15, 5, 5);
+  light.position.set(150, 50, 50);
   scene.add(light);
   const container = document.querySelector(id);
   // const axesHelper = new three.AxesHelper(50);

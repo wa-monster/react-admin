@@ -23,6 +23,7 @@ const ThreeHouse = lazy(() => import("@/pages/Three/004"));
 const ThreePerson = lazy(() => import("@/pages/Three/005"));
 const WalkPerson = lazy(() => import("@/pages/Three/006"));
 const EarthGl = lazy(() => import("@/pages/Three/007"));
+const SeniorEarth = lazy(() => import("@/pages/Three/008"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -190,11 +191,20 @@ export const menuRouteArr = [
           icon: <PieChartOutlined />,
         },
       },
-			{
+      {
         path: "007",
         element: <FactorySuspense ele={EarthGl} />,
         handle: {
           name: "007地球",
+          icon: <PieChartOutlined />,
+        },
+      },
+
+      {
+        path: "008",
+        element: <FactorySuspense ele={SeniorEarth} />,
+        handle: {
+          name: "008高级地球",
           icon: <PieChartOutlined />,
         },
       },
