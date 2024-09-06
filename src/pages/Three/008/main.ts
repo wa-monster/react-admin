@@ -38,7 +38,7 @@ const createStar = (count: number) => {
   );
   const material = new Three.PointsMaterial({
     map: starTexture,
-    size: 1, //点大小
+    size: 2, //点大小
     transparent: true, //材质透明
     opacity: 1, //透明度
     vertexColors: true, //顶点着色
@@ -91,11 +91,24 @@ const createEarth = () => {
   });
   const cloudMesh = new Three.Mesh(geometryCloud, cloudMaterial);
   earthGroup.add(cloudMesh);
-  earthGroup.rotation.set(0.4, Math.PI + 1, -0.4);
+  earthGroup.rotation.set(0.4, Math.PI + 1, 0);
   return earthGroup;
 };
 // 创建星轨环
-const createStarOrbit = () => {};
+const createStarOrbit = () => {
+  const geometry = new Three.TorusGeometry(8, 0.2, 2, 200);
+  const material = new Three.MeshBasicMaterial({
+    color: new Three.Color("rgb(147, 181, 207)"),
+    opacity: 0.4,
+    // transparent: true,
+  });
+  const starOrbit = new Three.Mesh(geometry, material);
+  starOrbit.rotation.set(Math.PI / 2, 0, 0);
+
+  // 效果合成器，是Three.js中的一个后期处理效果库。EffectComposer允许您将多个RenderPass组合在一起，以创建复杂的后期处理效果
+
+  return starOrbit;
+};
 const initMain = (id: string) => {
   const renderer = createRendererer();
   const camera = createCamera();
@@ -108,6 +121,8 @@ const initMain = (id: string) => {
   const earth = createEarth();
   scene.add(earth);
 
+  const starOrbit = createStarOrbit();
+  scene.add(starOrbit);
   // 光
   const light = new Three.DirectionalLight(0xffffff, 1);
   light.position.set(150, 50, 50);

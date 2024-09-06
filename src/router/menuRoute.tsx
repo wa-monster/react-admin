@@ -24,6 +24,7 @@ const ThreePerson = lazy(() => import("@/pages/Three/005"));
 const WalkPerson = lazy(() => import("@/pages/Three/006"));
 const EarthGl = lazy(() => import("@/pages/Three/007"));
 const SeniorEarth = lazy(() => import("@/pages/Three/008"));
+const Video360 = lazy(() => import("@/pages/Three/009"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -205,6 +206,15 @@ export const menuRouteArr = [
         element: <FactorySuspense ele={SeniorEarth} />,
         handle: {
           name: "008高级地球",
+          icon: <PieChartOutlined />,
+        },
+      },
+
+      {
+        path: "009",
+        element: <FactorySuspense ele={Video360} />,
+        handle: {
+          name: "009全景视频",
           icon: <PieChartOutlined />,
         },
       },
