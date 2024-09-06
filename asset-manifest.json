@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-admin/static/css/main.68e0db4c.css",
-    "main.js": "/react-admin/static/js/main.b06dafa0.js",
+    "main.js": "/react-admin/static/js/main.4e856a7c.js",
     "static/css/751.c086f9ca.chunk.css": "/react-admin/static/css/751.c086f9ca.chunk.css",
     "static/js/751.61f57658.chunk.js": "/react-admin/static/js/751.61f57658.chunk.js",
     "static/js/627.019f333f.chunk.js": "/react-admin/static/js/627.019f333f.chunk.js",
@@ -28,7 +28,7 @@
     "static/js/701.653a1014.chunk.js": "/react-admin/static/js/701.653a1014.chunk.js",
     "static/js/487.4a208750.chunk.js": "/react-admin/static/js/487.4a208750.chunk.js",
     "static/css/59.5ffe40a0.chunk.css": "/react-admin/static/css/59.5ffe40a0.chunk.css",
-    "static/js/59.74186970.chunk.js": "/react-admin/static/js/59.74186970.chunk.js",
+    "static/js/59.9b4be2e9.chunk.js": "/react-admin/static/js/59.9b4be2e9.chunk.js",
     "static/js/668.dd650bff.chunk.js": "/react-admin/static/js/668.dd650bff.chunk.js",
     "static/js/828.80c1b190.chunk.js": "/react-admin/static/js/828.80c1b190.chunk.js",
     "static/js/871.81d33ec3.chunk.js": "/react-admin/static/js/871.81d33ec3.chunk.js",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.68e0db4c.css",
-    "static/js/main.b06dafa0.js"
+    "static/js/main.4e856a7c.js"
   ]
 }
