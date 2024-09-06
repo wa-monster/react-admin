@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyang_template=self.webpackChunkyang_template||[]).push([[697],{3697:(e,a,t)=>{t.r(a),t.d(a,{default:()=>c});var s=t(571);var l=t(3140);const c=()=>((0,s.useEffect)((()=>{}),[]),(0,l.jsx)("div",{className:"bg-white h-full",id:"container"}))}}]);
