@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./gallery.css";
 window.axios = axios;
+const context = process.env.PUBLIC_URL;
 const GalleryList = (props: { galleryArr: string[] }) => {
   return (
     <>
@@ -10,7 +11,7 @@ const GalleryList = (props: { galleryArr: string[] }) => {
         return (
           <img
             className="gallery-item"
-            src={"/image/gallery/" + imgStr}
+            src={context + "/image/gallery/" + imgStr}
             key={imgStr}
             alt=""
           />
