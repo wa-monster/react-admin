@@ -25,6 +25,7 @@ const WalkPerson = lazy(() => import("@/pages/Three/006"));
 const EarthGl = lazy(() => import("@/pages/Three/007"));
 const SeniorEarth = lazy(() => import("@/pages/Three/008"));
 const Video360 = lazy(() => import("@/pages/Three/009"));
+const LookHouse = lazy(() => import("@/pages/Three/010"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -209,12 +210,19 @@ export const menuRouteArr = [
           icon: <PieChartOutlined />,
         },
       },
-
       {
         path: "009",
         element: <FactorySuspense ele={Video360} />,
         handle: {
           name: "009全景视频",
+          icon: <PieChartOutlined />,
+        },
+      },
+      {
+        path: "010",
+        element: <FactorySuspense ele={LookHouse} />,
+        handle: {
+          name: "010全景看房",
           icon: <PieChartOutlined />,
         },
       },
