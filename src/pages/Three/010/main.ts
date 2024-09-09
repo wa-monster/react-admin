@@ -34,8 +34,8 @@ const initMain = (id: string) => {
   // texture.colorSpace = Three.SRGBColorSpace;
   scene.background = texture;
 
-  const helper = new Three.AxesHelper(10);
-  scene.add(helper);
+  // const helper = new Three.AxesHelper(10);
+  // scene.add(helper);
 
   const container = document.querySelector(id);
   if (container) {
