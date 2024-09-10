@@ -6,7 +6,6 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
 import * as Three from "three";
 import dat from "dat.gui";
-import { count } from "console";
 const context = process.env.PUBLIC_URL;
 let pointMesh: ReturnType<typeof createRain>;
 const createRain = (
