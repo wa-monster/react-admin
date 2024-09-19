@@ -121,6 +121,9 @@ const initMain = (id: string) => {
     };
     animate();
   }
+	return {
+		obj
+	};
 };
 
 export { initMain };
