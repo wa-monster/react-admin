@@ -7,7 +7,7 @@ i18n
   .use(LanguageDetector) //检测用户语言
   .use(initReactI18next) //把i18n实例传给react-i18next
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: "en",
     interpolation: {
       escapeValue: false, // React已经转义了

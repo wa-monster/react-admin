@@ -28,6 +28,7 @@ const Video360 = lazy(() => import("@/pages/Three/009"));
 const LookHouse = lazy(() => import("@/pages/Three/010"));
 const RainWorld = lazy(() => import("@/pages/Three/011"));
 const MachineRoom = lazy(() => import("@/pages/Three/012"));
+const HurdlesGame = lazy(() => import("@/pages/Three/013"));
 const AntVX6WorkFlow = lazy(
   () => import("@/pages/WorkFlow/AntVX6WorkFlow/index")
 );
@@ -241,6 +242,14 @@ export const menuRouteArr = [
         element: <FactorySuspense ele={MachineRoom} />,
         handle: {
           name: "012机房",
+          icon: <PieChartOutlined />,
+        },
+      },
+      {
+        path: "013",
+        element: <FactorySuspense ele={HurdlesGame} />,
+        handle: {
+          name: "013小游戏",
           icon: <PieChartOutlined />,
         },
       },
